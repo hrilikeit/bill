@@ -1,0 +1,12 @@
+
+# Big folders / media (do not commit)
+private/library/
+public/site_video/
+google/
+
+# Big file types
+*.zip
+*.mov
+*.MOV
+*.mp4
+*.flv
