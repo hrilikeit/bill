@@ -1,0 +1,13 @@
+IMG.large_avatar {width: 130px;}
+IMG.little_avatar {width: 60px;}
+IMG.tiny_avatar {width: 20px;}
+
+
+.club_link {
+	float: left;
+	margin: 10px;
+	width: 130px;
+	height: 180px;
+	text-align: center;
+	border: 1px solid #888;
+}

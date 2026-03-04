@@ -1,0 +1,418 @@
+body {
+    background: linear-gradient(129.41deg, #20164A 19.08%, #351E79 83.12%);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Start nav bar */
+._navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+    left: 0;
+    z-index: 300;
+}
+
+.btn_sign_up {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    color: #FFFFFF;
+    position: relative;
+    padding: 10px 25px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.btn_sign_up::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    padding: 3px;
+    background: linear-gradient(262.37deg, #C61E69 0%, #FD3173 100%);;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.btn_sign_up:hover {
+    color: #b8b2b2;
+}
+
+.nav_link {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    color: #877FA9;
+}
+
+.navbar-collapse.collapse.show {
+    padding: 10px;
+    background: linear-gradient(129.41deg, #20164A 19.08%, #351E79 83.12%);
+}
+
+/* End nav bar */
+
+/* Start Header */
+.slider_title_1 {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 42px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
+
+/*.slider_title_1:before {*/
+/*    content: url("../site_img/logo.png");*/
+/*    margin-right: 15px;*/
+/*}*/
+
+.slider_title_2 {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 100%;
+    background: linear-gradient(262.37deg, #C61E69 0%, #FD3173 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.slider_text {
+    margin-top: 30px;
+    max-width: 655px;
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    color: #877FA9;
+
+}
+
+.fans {
+    display: flex;
+    max-width: 230px;
+    margin-top: 22px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.fan1 {
+    position: absolute;
+    left: 0;
+}
+
+.fan2 {
+    position: absolute;
+    left: 20px;
+}
+
+.fan3 {
+    position: absolute;
+    left: 40px;
+}
+
+.fan4 {
+    position: absolute;
+    left: 60px;
+}
+
+.fan5 {
+    position: absolute;
+    left: 80px;
+}
+
+.fan_text {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 129%;
+    color: #C61E69;
+    margin-left: auto;
+}
+
+.artist {
+    margin-top: 60px;
+}
+
+.btn_artist {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    background: linear-gradient(262.37deg, #C61E69 0%, #FD3173 100%);
+    border-radius: 5px;
+    padding: 13px 30px;
+}
+
+.btn_artist:hover {
+    color: #b8b2b2;
+}
+
+/* End Header */
+
+/* Start About Us */
+.about_us {
+    background: linear-gradient(262.37deg, #C61E69 0%, #FD3173 100%);
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.about_us_title {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #F9B7D4;
+}
+
+.about_us_title1 {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.about_us_text {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    color: #F9B7D4;
+}
+
+/* End About Us */
+
+/* Start How it works */
+.how_it_works {
+    padding-top: 120px;
+}
+
+.how_it_works_title {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #877FA9;
+    text-align: center;
+}
+
+.how_it_works_title1 {
+    margin-bottom: 55px;
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.how_it_works_card {
+    padding: 42px 22px 32px;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+}
+
+.how_it_works_card_title {
+    display: flex;
+    align-items: center;
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+
+.how_it_works_title_num {
+    margin-right: 15px;
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    background: linear-gradient(262.37deg, #C61E69 0%, #FD3173 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+.how_it_works_text {
+    margin-bottom: 0;
+    margin-top: 25px;
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    color: #877FA9;
+}
+
+/* End How it works */
+
+/* Start FAQ */
+.faq {
+    margin-top: 140px;
+    margin-bottom: 140px;
+}
+
+.accordion-item,
+.btn_accordion {
+    background-color: transparent!important;
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    border-bottom: 1px solid #877FA9;
+}
+
+.accordion-button::after {
+    background-image: url("../site_img/up.png");
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("../site_img/up.png");
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ffffff;
+}
+
+.accordion-body{
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #877FA9;
+}
+
+/* End FAQ */
+
+/* Start Footer */
+.up_link {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 23px;
+    color: #C61E69;
+    margin: 15px;
+}
+
+.up_link:hover {
+    color: #9c1050;
+}
+
+.footer_content {
+    margin-top: 25px;
+}
+
+.footer_content,
+.footer_link {
+    font-family: 'Tahoma';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.footer_link {
+    text-decoration: underline;
+}
+
+.footer_link:hover {
+    color: #b8b2b2;
+}
+
+.footer_text {
+    margin-top: 15px;
+}
+
+.new-index-div {
+    display: flex;
+    justify-content: start;
+}
+
+/* End Footer */
+
+@media (max-width: 1440px) {
+   .new-index-content h3, .new-index-content h2 {
+       font-size: 30px;
+   }
+    .new-index-content .slider_text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .new-index-content h3, .new-index-content h2  {
+        font-size: 25px;
+    }
+
+    .new-index-content .slider_text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1920px) {
+    .new-index-div img {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .new-index-div img {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .new-index-div img {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 900px) {
+    .new-index-div img {
+        max-width: 300px;
+    }
+}

@@ -1,0 +1,42 @@
+/*---- Popup Calednar Rules ----*/
+#popup_cal {
+	width: 200px;
+	background-color: #eee;
+	border: 1px outset black;
+	padding: 5px;
+	z-index: 100;
+}
+#popup_cal TABLE {margin: 3px;}
+#popup_cal TABLE TR TD {
+	font: x-small "Verdana";
+	text-align: center;
+	padding: 5px 3px;
+}
+#popup_cal TABLE TR TH {
+	font: x-small "Arial";
+	font-weight: bold;
+}
+#popup_cal TABLE TR TD.date {
+	width: 30px;
+	background-color: #ddd;
+	border: 1px outset #bbb;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#popup_cal TABLE TR TD.today {
+	background-color: white;
+	font-weight: bold;
+}
+#popup_cal TABLE TR TD.there {
+	background-color: white;	
+	background-image: url('/site_img/icons/accept.png');
+}
+#popup_cal TABLE TR TD.there A {display: none;}
+#popup_cal TABLE TR TD A {
+	text-decoration: none;
+	color: black;
+}
+
+INPUT.date_entry {
+	width: 80px !IMPORTANT;
+}

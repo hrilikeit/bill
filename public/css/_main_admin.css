@@ -1,0 +1,126 @@
+#content > h1,
+#content > table.StaysailReport tr,
+th, td {
+    color: #000000;
+}
+
+.ck-editor__main p {
+    height: 500px;
+}
+
+
+/*******************************/
+body {
+    min-width: auto;
+}
+
+FORM.admin {
+    width: 94%;
+    padding: 10px;
+}
+
+FORM .label {
+    width: unset;
+}
+
+FORM .control INPUT[type="text"] {
+    width: unset;
+    padding: 0;
+}
+
+.submit {
+    text-align: center;
+}
+
+.omega {
+    display: none;
+}
+
+#header .logo img {
+    width: 70%;
+}
+
+.all_members_div {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0 10px;
+}
+
+.all_members_div > label {
+    display: grid;
+    margin-bottom: 10px;
+}
+
+.all_members_div > label > span {
+    width: 100%;
+    margin-top: 5px;
+}
+
+#content > form {
+    color: black;
+}
+
+/*=============== BREAKPOINTS ===============*/
+@media screen and (max-width: 1250px) {
+    .container_19,
+    .container_19 .grid_19 {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    tr {
+        width: 100%;
+    }
+
+    #content {
+        padding: 10px;
+    }
+
+    .container_19 .grid_3 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container_19 .grid_13 {
+        width: 97% !important;
+    }
+
+    FORM .control {
+        float: unset;
+        margin-top: 20px;
+    }
+
+    FORM .control INPUT[type="text"] {
+        width: 300px;
+    }
+
+    .grid_19.this,
+    .grid_13 {
+        margin: 5px;
+    }
+
+    .admin > tbody > tr > td > img {
+        width: 50%;
+    }
+
+    tbody {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .all_members_div {
+        display: grid;
+    }
+}
+
+@media screen and (max-width: 576px) {
+}
+
+@media screen and (max-width: 350px) {
+}
+
+/*.container_19 .grid_13 {*/
+/*    width: 75%;*/
+/*}*/

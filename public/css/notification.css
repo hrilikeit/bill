@@ -1,0 +1,30 @@
+#notification_window {
+	display: none;
+	position: fixed;
+	top: 50px;
+	left: 50px;
+	width: 800px;
+	height: 70px;
+	overflow: overflow-x;
+	background-color: white;
+	border: 1px solid black;
+	border-width: 1px 5px 5px 1px;
+	padding: 3px 10px 10px 10px;
+}
+
+#notification_content {
+	float: left;
+	width: 778px;
+	border: 1px solid black;
+	padding: 10px;
+	margin-top: 5px;
+	height: 30px;
+	overflow-y: scroll;
+}
+
+#notification_window .closer {
+	float: right;
+	font: 12px "Arial";
+	text-align: right;
+}
+#notification_window .closer A {text-decoration: none;}

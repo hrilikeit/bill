@@ -1,0 +1,63 @@
+s:9099:"ffmpeg version 2.6.8 Copyright (c) 2000-2016 the FFmpeg developers
+  built with gcc 4.4.7 (GCC) 20120313 (Red Hat 4.4.7-16)
+  configuration: --prefix=/usr --bindir=/usr/bin --datadir=/usr/share/ffmpeg --incdir=/usr/include/ffmpeg --libdir=/usr/lib64 --mandir=/usr/share/man --arch=x86_64 --optflags='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' --enable-bzlib --disable-crystalhd --enable-gnutls --enable-ladspa --enable-libass --enable-libdc1394 --enable-libfaac --enable-nonfree --disable-indev=jack --enable-libfreetype --enable-libgsm --enable-libmp3lame --enable-openal --enable-libopenjpeg --enable-libopus --enable-libpulse --enable-libschroedinger --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libvorbis --enable-libv4l2 --enable-libx264 --enable-libx265 --enable-libxvid --enable-x11grab --enable-avfilter --enable-avresample --enable-postproc --enable-pthreads --disable-static --enable-shared --enable-gpl --disable-debug --disable-stripping --shlibdir=/usr/lib64 --enable-runtime-cpudetect
+  libavutil      54. 20.100 / 54. 20.100
+  libavcodec     56. 26.100 / 56. 26.100
+  libavformat    56. 25.101 / 56. 25.101
+  libavdevice    56.  4.100 / 56.  4.100
+  libavfilter     5. 11.102 /  5. 11.102
+  libavresample   2.  1.  0 /  2.  1.  0
+  libswscale      3.  1.101 /  3.  1.101
+  libswresample   1.  1.100 /  1.  1.100
+  libpostproc    53.  3.100 / 53.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/localstr/yourfanslive.com/private/library/2281.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf58.20.100
+  Duration: 00:06:14.91, start: 0.000000, bitrate: 5595 kb/s
+    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], 5462 kb/s, 30 fps, 30 tbr, 1000k tbn, 60 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 125 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Output #0, null, to '/dev/null':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf56.25.101
+    Stream #0:0(und): Video: rawvideo (I420 / 0x30323449), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 30 fps, 30 tbn, 30 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc56.26.100 rawvideo
+    Stream #0:1(und): Audio: pcm_s16le, 44100 Hz, stereo, s16, 1411 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+      encoder         : Lavc56.26.100 pcm_s16le
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> rawvideo (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+[null @ 0x6f2e60] Encoder did not produce proper pts, making some up.
+frame=  134 fps=0.0 q=0.0 size=N/A time=00:00:04.59 bitrate=N/A    frame=  298 fps=295 q=0.0 size=N/A time=00:00:10.07 bitrate=N/A    frame=  442 fps=292 q=0.0 size=N/A time=00:00:14.86 bitrate=N/A    frame=  611 fps=303 q=0.0 size=N/A time=00:00:20.50 bitrate=N/A    frame=  744 fps=296 q=0.0 size=N/A time=00:00:24.93 bitrate=N/A    frame=  882 fps=292 q=0.0 size=N/A time=00:00:29.53 bitrate=N/A    frame= 1044 fps=297 q=0.0 size=N/A time=00:00:34.94 bitrate=N/A    frame= 1162 fps=289 q=0.0 size=N/A time=00:00:38.87 bitrate=N/A    frame= 1327 fps=293 q=0.0 size=N/A time=00:00:44.37 bitrate=N/A    frame= 1464 fps=291 q=0.0 size=N/A time=00:00:48.92 bitrate=N/A    frame= 1599 fps=289 q=0.0 size=N/A time=00:00:53.42 bitrate=N/A    frame= 1745 fps=289 q=0.0 size=N/A time=00:00:58.30 bitrate=N/A    frame= 1892 fps=290 q=0.0 size=N/A time=00:01:03.20 bitrate=N/A    frame= 2017 fps=286 q=0.0 size=N/A time=00:01:07.36 bitrate=N/A    frame= 2168 fps=287 q=0.0 size=N/A time=00:01:12.39 bitrate=N/A    frame= 2339 fps=290 q=0.0 size=N/A time=00:01:18.11 bitrate=N/A    frame= 2482 fps=290 q=0.0 size=N/A time=00:01:22.87 bitrate=N/A    frame= 2663 fps=294 q=0.0 size=N/A time=00:01:28.90 bitrate=N/A    frame= 2818 fps=295 q=0.0 size=N/A time=00:01:34.06 bitrate=N/A    frame= 2960 fps=294 q=0.0 size=N/A time=00:01:38.80 bitrate=N/A    frame= 3113 fps=295 q=0.0 size=N/A time=00:01:43.90 bitrate=N/A    frame= 3253 fps=294 q=0.0 size=N/A time=00:01:48.57 bitrate=N/A    frame= 3384 fps=292 q=0.0 size=N/A time=00:01:52.94 bitrate=N/A    frame= 3536 fps=293 q=0.0 size=N/A time=00:01:58.00 bitrate=N/A    frame= 3689 fps=293 q=0.0 size=N/A time=00:02:03.11 bitrate=N/A    frame= 3821 fps=292 q=0.0 size=N/A time=00:02:07.50 bitrate=N/A    frame= 3986 fps=293 q=0.0 size=N/A time=00:02:13.00 bitrate=N/A    frame= 4161 fps=295 q=0.0 size=N/A time=00:02:18.80 bitrate=N/A    frame= 4331 fps=297 q=0.0 size=N/A time=00:02:24.49 bitrate=N/A    frame= 4495 fps=298 q=0.0 size=N/A time=00:02:29.97 bitrate=N/A    frame= 4636 fps=297 q=0.0 size=N/A time=00:02:34.66 bitrate=N/A    frame= 4797 fps=298 q=0.0 size=N/A time=00:02:40.03 bitrate=N/A    frame= 4961 fps=298 q=0.0 size=N/A time=00:02:45.51 bitrate=N/A    frame= 5107 fps=298 q=0.0 size=N/A time=00:02:50.36 bitrate=N/A    frame= 5269 fps=299 q=0.0 size=N/A time=00:02:55.77 bitrate=N/A    frame= 5413 fps=298 q=0.0 size=N/A time=00:03:00.55 bitrate=N/A    frame= 5602 fps=301 q=0.0 size=N/A time=00:03:06.87 bitrate=N/A    frame= 5755 fps=301 q=0.0 size=N/A time=00:03:11.95 bitrate=N/A    frame= 5900 fps=300 q=0.0 size=N/A time=00:03:16.81 bitrate=N/A    frame= 6046 fps=300 q=0.0 size=N/A time=00:03:21.66 bitrate=N/A    frame= 6199 fps=300 q=0.0 size=N/A time=00:03:26.77 bitrate=N/A    frame= 6368 fps=301 q=0.0 size=N/A time=00:03:32.39 bitrate=N/A    frame= 6532 fps=302 q=0.0 size=N/A time=00:03:37.87 bitrate=N/A    frame= 6692 fps=302 q=0.0 size=N/A time=00:03:43.19 bitrate=N/A    frame= 6852 fps=302 q=0.0 size=N/A time=00:03:48.53 bitrate=N/A    frame= 7017 fps=303 q=0.0 size=N/A time=00:03:54.03 bitrate=N/A    frame= 7147 fps=302 q=0.0 size=N/A time=00:03:58.37 bitrate=N/A    frame= 7267 fps=300 q=0.0 size=N/A time=00:04:02.36 bitrate=N/A    frame= 7392 fps=299 q=0.0 size=N/A time=00:04:06.52 bitrate=N/A    frame= 7525 fps=299 q=0.0 size=N/A time=00:04:10.96 bitrate=N/A    frame= 7653 fps=298 q=0.0 size=N/A time=00:04:15.23 bitrate=N/A    frame= 7817 fps=298 q=0.0 size=N/A time=00:04:20.69 bitrate=N/A    frame= 7956 fps=298 q=0.0 size=N/A time=00:04:25.33 bitrate=N/A    frame= 8073 fps=297 q=0.0 size=N/A time=00:04:29.23 bitrate=N/A    frame= 8205 fps=296 q=0.0 size=N/A time=00:04:33.62 bitrate=N/A    frame= 8367 fps=297 q=0.0 size=N/A time=00:04:39.03 bitrate=N/A    frame= 8517 fps=297 q=0.0 size=N/A time=00:04:44.02 bitrate=N/A    frame= 8678 fps=297 q=0.0 size=N/A time=00:04:49.39 bitrate=N/A    frame= 8830 fps=297 q=0.0 size=N/A time=00:04:54.47 bitrate=N/A    frame= 8982 fps=297 q=0.0 size=N/A time=00:04:59.53 bitrate=N/A    frame= 9138 fps=297 q=0.0 size=N/A time=00:05:04.73 bitrate=N/A    frame= 9307 fps=298 q=0.0 size=N/A time=00:05:10.35 bitrate=N/A    frame= 9485 fps=299 q=0.0 size=N/A time=00:05:16.30 bitrate=N/A    frame= 9628 fps=299 q=0.0 size=N/A time=00:05:21.06 bitrate=N/A    frame= 9782 fps=299 q=0.0 size=N/A time=00:05:26.19 bitrate=N/A    frame= 9957 fps=299 q=0.0 size=N/A time=00:05:32.04 bitrate=N/A    frame=10070 fps=298 q=0.0 size=N/A time=00:05:35.80 bitrate=N/A    frame=10233 fps=299 q=0.0 size=N/A time=00:05:41.24 bitrate=N/A    frame=10404 fps=299 q=0.0 size=N/A time=00:05:46.92 bitrate=N/A    frame=10564 fps=300 q=0.0 size=N/A time=00:05:52.26 bitrate=N/A    frame=10736 fps=300 q=0.0 size=N/A time=00:05:58.00 bitrate=N/A    frame=10884 fps=300 q=0.0 size=N/A time=00:06:02.92 bitrate=N/A    frame=11011 fps=299 q=0.0 size=N/A time=00:06:07.17 bitrate=N/A    frame=11169 fps=300 q=0.0 size=N/A time=00:06:12.42 bitrate=N/A    frame=11246 fps=300 q=0.0 Lsize=N/A time=00:06:14.90 bitrate=N/A    
+video:1054kB audio:64584kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[Parsed_volumedetect_0 @ 0x701de0] n_samples: 33067008
+[Parsed_volumedetect_0 @ 0x701de0] mean_volume: -32.9 dB
+[Parsed_volumedetect_0 @ 0x701de0] max_volume: 0.0 dB
+[Parsed_volumedetect_0 @ 0x701de0] histogram_0db: 36
+[Parsed_volumedetect_0 @ 0x701de0] histogram_1db: 131
+[Parsed_volumedetect_0 @ 0x701de0] histogram_2db: 238
+[Parsed_volumedetect_0 @ 0x701de0] histogram_3db: 419
+[Parsed_volumedetect_0 @ 0x701de0] histogram_4db: 653
+[Parsed_volumedetect_0 @ 0x701de0] histogram_5db: 918
+[Parsed_volumedetect_0 @ 0x701de0] histogram_6db: 1396
+[Parsed_volumedetect_0 @ 0x701de0] histogram_7db: 2021
+[Parsed_volumedetect_0 @ 0x701de0] histogram_8db: 2716
+[Parsed_volumedetect_0 @ 0x701de0] histogram_9db: 3735
+[Parsed_volumedetect_0 @ 0x701de0] histogram_10db: 5373
+[Parsed_volumedetect_0 @ 0x701de0] histogram_11db: 6759
+[Parsed_volumedetect_0 @ 0x701de0] histogram_12db: 8484
+[Parsed_volumedetect_0 @ 0x701de0] histogram_13db: 10570";

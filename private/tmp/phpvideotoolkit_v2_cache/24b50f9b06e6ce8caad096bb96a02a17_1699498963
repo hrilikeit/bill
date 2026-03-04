@@ -1,0 +1,61 @@
+s:3812:"ffmpeg version 2.6.8 Copyright (c) 2000-2016 the FFmpeg developers
+  built with gcc 4.4.7 (GCC) 20120313 (Red Hat 4.4.7-16)
+  configuration: --prefix=/usr --bindir=/usr/bin --datadir=/usr/share/ffmpeg --incdir=/usr/include/ffmpeg --libdir=/usr/lib64 --mandir=/usr/share/man --arch=x86_64 --optflags='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' --enable-bzlib --disable-crystalhd --enable-gnutls --enable-ladspa --enable-libass --enable-libdc1394 --enable-libfaac --enable-nonfree --disable-indev=jack --enable-libfreetype --enable-libgsm --enable-libmp3lame --enable-openal --enable-libopenjpeg --enable-libopus --enable-libpulse --enable-libschroedinger --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libvorbis --enable-libv4l2 --enable-libx264 --enable-libx265 --enable-libxvid --enable-x11grab --enable-avfilter --enable-avresample --enable-postproc --enable-pthreads --disable-static --enable-shared --enable-gpl --disable-debug --disable-stripping --shlibdir=/usr/lib64 --enable-runtime-cpudetect
+  libavutil      54. 20.100 / 54. 20.100
+  libavcodec     56. 26.100 / 56. 26.100
+  libavformat    56. 25.101 / 56. 25.101
+  libavdevice    56.  4.100 / 56.  4.100
+  libavfilter     5. 11.102 /  5. 11.102
+  libavresample   2.  1.  0 /  2.  1.  0
+  libswscale      3.  1.101 /  3.  1.101
+  libswresample   1.  1.100 /  1.  1.100
+  libpostproc    53.  3.100 / 53.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/localstr/yourfanslive.com/private/library/trailer/2273.mov':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 512
+    compatible_brands: qt  
+    artist          : Bill Sauser
+    title           : Untitled Project
+    encoder         : Lavf56.25.101
+  Duration: 00:00:03.80, start: 0.021333, bitrate: 7854 kb/s
+    Stream #0:0(eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1920x1080 [SAR 1:1 DAR 16:9], 7822 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc (default)
+    Metadata:
+      handler_name    : DataHandler
+      encoder         : Lavc56.26.100 libx264
+      timecode        : 00:00:00:00
+    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 35 kb/s (default)
+    Metadata:
+      handler_name    : DataHandler
+    Stream #0:2(eng): Data: none (tmcd / 0x64636D74), 0 kb/s
+    Metadata:
+      handler_name    : DataHandler
+      timecode        : 00:00:00:00
+Output #0, null, to '/dev/null':
+  Metadata:
+    major_brand     : qt  
+    minor_version   : 512
+    compatible_brands: qt  
+    artist          : Bill Sauser
+    title           : Untitled Project
+    encoder         : Lavf56.25.101
+    Stream #0:0(eng): Video: rawvideo (I420 / 0x30323449), yuv420p, 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 23.98 fps, 23.98 tbn, 23.98 tbc (default)
+    Metadata:
+      handler_name    : DataHandler
+      timecode        : 00:00:00:00
+      encoder         : Lavc56.26.100 rawvideo
+    Stream #0:1(eng): Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s (default)
+    Metadata:
+      handler_name    : DataHandler
+      encoder         : Lavc56.26.100 pcm_s16le
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> rawvideo (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+frame=   71 fps=0.0 q=0.0 size=N/A time=00:00:03.13 bitrate=N/A    frame=   91 fps=0.0 q=0.0 Lsize=N/A time=00:00:03.83 bitrate=N/A    
+video:9kB audio:712kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[Parsed_volumedetect_0 @ 0x18572e0] n_samples: 364544
+[Parsed_volumedetect_0 @ 0x18572e0] mean_volume: -17.7 dB
+[Parsed_volumedetect_0 @ 0x18572e0] max_volume: -0.0 dB
+[Parsed_volumedetect_0 @ 0x18572e0] histogram_0db: 200
+[Parsed_volumedetect_0 @ 0x18572e0] histogram_1db: 212";

@@ -1,0 +1,675 @@
+#btn_mobile_left_menu,
+.mobile_mobile_info,
+#btn_mobile_right_menu,
+.mobile_userinfo {
+    display: none;
+}
+
+@media only screen and (max-width: 1650px) {
+    .swiper_container {
+        width: 310px;
+        height: 460px;
+    }
+
+    .swiper-slide .user_img-content {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .swiper_container {
+        width: 250px;
+        height: 400px;
+    }
+
+    .swiper-slide .user_img-content {
+        width: 55px;
+        height: 55px;
+    }
+
+    .container_19,
+    .container_19 .grid_19 {
+        width: 99%;
+    }
+
+    .middle-container.grid_12 {
+        width: 50% ;
+    }
+
+    /*.container_19 .grid_3 {*/
+    /*    width: 17%;*/
+    /*}*/
+}
+
+@media only screen and (max-width: 1300px) {
+    #header .logo.inner-logo {
+        margin-left: unset;
+    }
+
+    #header .userinfo {
+        float: unset;
+        position: absolute;
+        right: 10px;
+        margin-top: 15px;
+    }
+
+    #header {
+        margin-bottom: 20px;
+    }
+
+    .comment_opener {
+        width: 96%;
+    }
+
+    /*.summary-div > .summary {*/
+    /*    display: grid!important;*/
+    /*}*/
+
+    .blue_unsubscription {
+        top: 0!important;
+        text-align: center!important;
+    }
+
+    #logoSeparator {
+        margin-bottom: 10px;
+    }
+
+    .profile_form .field:last-of-type {
+        text-align: center;
+    }
+
+    #myBtn_delete{
+        display: table;
+        margin: 0 auto;
+        line-height: 17px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .summary-div > .summary {
+        display: flex!important;
+    }
+
+    /*.blue_unsubscription {*/
+    /*    top: 24px!important;*/
+    /*}*/
+    .container_19,
+    .container_19 .grid_19 {
+        width: 99%;
+    }
+
+    .middle-container.grid_12 {
+        width: 50% !important;
+    }
+
+    .container_19 .grid_3 {
+        width: 17%;
+    }
+
+    .swiper_container {
+        width: 190px;
+        height: 360px;
+    }
+
+    .swiper-slide .user_img-content {
+        width: 40px;
+        height: 40px;
+    }
+
+    .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 0 !important;
+    }
+
+    .container_19 > .grid_19.this > .grid_3.alpha > #action > .action {
+        width: 140px;
+    }
+
+    .comment_opener {
+        width: 95%;
+    }
+
+    #video_store_container {
+        display: grid;
+        grid-template-columns: auto auto;
+        width: max-content;
+    }
+
+    #video_store_container_item {
+        max-width: 230px;
+        margin: 0 5px;
+    }
+
+    .vault_data {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .omega_992 {
+        display: none;
+    }
+
+    .middle-container.grid_12.middle-container_992 {
+        width: 79% !important;
+    }
+
+    /*video {*/
+    /*    width: 350px;*/
+    /*}*/
+
+    .comment_input TEXTAREA {
+        width: 260px;
+    }
+
+    .swiper_container_992 {
+        width: 100%;
+    }
+
+    #gallery li {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #content > p {
+        display: flex;
+    }
+
+    #content #orderError {
+        flex-direction: column;
+    }
+
+    .grid_6:has(.edit-profile) {
+        float: none;
+    }
+
+    #posts:has(.edit-profile) {
+        display: flex;
+        justify-content: center;
+    }
+
+    .edit-profile .file {
+        display: flex;
+        flex-direction: column;
+
+        .control {
+            margin: 10px 0;
+        }
+    }
+
+    #mpopupBox {
+        .modal-content {
+            width: 90%;
+            height: 200px;
+        }
+        .purchase_options{
+            float: none;
+        }
+
+        .subscribe-modal-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .spaced {
+                margin: 10px 0;
+            }
+        }
+
+        .field {
+            width: 100%;
+        }
+    }
+
+    #mpopupBox .modal-header h2 {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container_19,
+    .container_19 .grid_19,
+    .container_19 .grid_3.omega,
+    .container_19 .grid_19.this .grid_12 {
+        width: 100% !important;
+        margin: 0;
+    }
+
+    #footer {
+        padding-top: 0;
+    }
+
+    #footer .footer {
+        padding: 25px 5px 5px;
+    }
+
+    .comment_opener {
+        width: 94%;
+    }
+
+    .twitter-timeline {
+        margin-left: 10px;
+    }
+
+    .swiper_container {
+        margin: auto;
+    }
+
+    #btn_mobile_left_menu,
+    #btn_mobile_right_menu {
+        display: block;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
+
+    .mobile_mobile_info.mobile_mobile_info_hidden,
+    .mobile_userinfo.mobile_userinfo_hidden {
+        display: none;
+    }
+
+    .mobile_mobile_info,
+    .mobile_userinfo {
+        display: grid;
+        position: inherit;
+        z-index: 9999;
+        right: 10px;
+        top: 35px;
+        background-color: #ffffff;
+        border: 1px solid;
+        padding: 15px;
+        width: 90px;
+        font-size: 14px;
+    }
+
+    .mobile_mobile_info {
+        left: 10px;
+        width: max-content;
+    }
+
+    .mobile_userinfo > a {
+        margin-top: 5px;
+        text-decoration: none;
+    }
+
+    .mobile_mobile_info .fan_select_link a,
+    .mobile_mobile_info .action .action_text a {
+        color: black;
+    }
+
+    video{
+        width: 100%;
+        height: unset;
+    }
+
+    .logo.inner-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100% !important;
+        margin-left: unset !important;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .logo.inner-logo > a {
+        width: 50%;
+    }
+
+    .userinfo,
+    .container_19 .grid_3.alpha {
+        display: none;
+    }
+
+    .container_19 > .grid_19.this > .middle-container.grid_12 {
+        order: 2;
+        margin: auto;
+    }
+
+    #banner {
+        height: unset;
+    }
+
+    .swiper_container {
+        width: 365px;
+        height: 495px;
+    }
+
+    #content {
+        padding: 0;
+    }
+
+    .main_post .header {
+        margin-bottom: 0;
+    }
+
+    .main_post .content {
+        margin: 0;
+        height: max-content;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .web {
+        max-height: 550px;
+    }
+
+    .comment_opener,
+    .comment_opener > a {
+        font-size: 15px !important;
+    }
+
+    .post_desc {
+        width: 100%;
+        z-index: 1;
+        margin: 0 auto 10px;
+        padding: 5px 0;
+    }
+
+    .profile-bottom-section {
+        display: grid;
+    }
+
+    .profile-bottom-section .left-section {
+        /*order: 2;*/
+        width: 100%;
+        float: unset;
+    }
+
+    .profile-bottom-section .right-section {
+        /*order: 1;*/
+        width: 100%;
+        float: unset;
+    }
+
+    .friends-view {
+        position: unset;
+        height: unset;
+    }
+
+
+    .profile-top-section .avatar-photo {
+        width: 100px;
+        margin-top: -50px;
+    }
+
+    #uploadIcon {
+        top: 8px;
+        right: -4px;
+        width: 30px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    #uploadDisplay {
+        width: 30px;
+        top: -15px;
+        right: 1%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .profile-top-section .avatar-photo img.large_avatar {
+        width: 100px;
+        height: 100px;
+        min-width: 100px;
+        min-height: 100px;
+    }
+
+    .display-photo > .photo_landscape {
+        height: unset;
+    }
+
+    .profile-top-section .summary-div {
+        padding-left: unset;
+        /*padding-top: 70px;*/
+    }
+
+    .fun_edit-btn > a {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .fun_edit-btn {
+        width: unset;
+        padding-right: 0;
+        margin-top: 0;
+    }
+
+    .blue_subscription {
+        left: unset;
+        top: 25px;
+        padding: 9px 20px;
+    }
+
+    .main_comment {
+        box-sizing: border-box;
+    }
+
+    .main_comment TEXTAREA {
+        width: 348px;
+    }
+
+    A.green {
+        margin-left: 2px !important;
+        margin-right: 2px !important;
+        font-size: 13px;
+    }
+
+    .avatar_link_div {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    IMG.little_avatar {
+        margin-right: 0 !important;
+    }
+
+    .purchase_options {
+        padding-left: unset;
+    }
+
+    .field > .submit > input {
+        margin-left: unset;
+    }
+
+    /*form .control {*/
+    /*    float: left;*/
+    /*    margin-top: 5px;*/
+    /*}*/
+
+    #field_content {
+        width: 318px;
+    }
+
+    #field_content > .control {
+        width: 100% !important;
+    }
+
+    #field_content > .control > textarea {
+        margin: 0;
+    }
+
+    FORM .control INPUT[type="text"] {
+        width: 278px;
+    }
+
+    .container_19 .grid_9,
+    .grid_6 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+
+    .container_19 .grid_9 {
+        width: 100%;
+    }
+
+
+    /*Video Store Page*/
+    #video_store_container {
+        display: unset;
+        grid-template-columns: unset;
+        width: max-content;
+    }
+
+    #video_store_container_item {
+        max-width: unset;
+        margin: unset;
+    }
+
+    #video_store_container_item > .main_post > .content > video {
+        max-width: unset;
+        max-height: unset;
+    }
+
+    #video_store_container_item > .main_post > .content {
+        height: unset;
+    }
+
+    #video_store_container_item > .main_post > .comment_opener {
+        width: 94%;
+    }
+
+    #header {
+        margin-bottom: 0;
+    }
+
+    .vault_data {
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    FORM .control TEXTAREA {
+        margin-left: unset;
+        margin-right: unset;
+        max-width: unset;
+    }
+
+    FORM .control TEXTAREA,
+    .comment_input TEXTAREA,
+    #release {
+        width: 94%!important;
+    }
+
+    FORM .textarea .control {
+        width: 100% !important;
+    }
+
+    #webshow > form {
+        display: grid;
+        width: max-content;
+    }
+
+    .container_19 .grid_7 {
+        width: max-content;
+    }
+    .add-payment {
+
+        padding: 15px;
+        #field_promo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .join-code {
+            .control {
+                display: flex;
+            }
+        }
+
+        .card-data {
+            .field {
+                display: flex;
+                flex-direction: column;
+                .submit {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            .control {
+                display: flex;
+            }
+        }
+    }
+
+    .add-payment #field_promo .control input,
+    .add-payment .card-data .control input{
+        width: 100%;
+    }
+
+    #field_amount {
+        display: flex;
+        flex-direction: column;
+
+        .control {
+            display: flex;
+        }
+    }
+
+    #field_amount .control input {
+        width: 100%;
+    }
+
+    #content:has(#field_amount) {
+        padding: 20px;
+
+    }
+
+    .purchase_options:has(.buy_video_form){
+        width: 100%;
+    }
+
+    .buy_video_form .field .spaced {
+        width: unset;
+    }
+
+    .purchase-buttons {
+        .name_content-container,
+        .profile-buttons {
+            display: flex;
+        }
+        .purchase-buttons-content {
+            width: 100%;
+        }
+    }
+
+    #webshow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #addTip,
+        #goalTip {
+            margin-top: 10px;
+        }
+
+        .addTipMenuH2 {
+            margin-top: unset;
+        }
+
+        .show-row {
+            width: 90%;
+        }
+    }
+
+    #webshow form {
+        width: 90%;
+    }
+
+    #webshow .show-row form {
+        width: auto;
+    }
+
+    #myModalGoogle .modal-content-google {
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .profile-top-section .summary-div {
+        padding-top: 70px;
+    }
+}

@@ -1,0 +1,73 @@
+RewriteOptions inherit 
+RewriteEngine on 
+ Header always set Content-Security-Policy: upgrade-insecure-requests 
+ <IfModule mod_rewrite.c> 
+RewriteEngine On 
+RewriteCond %{SERVER_PORT} !^443$ 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+</IfModule> 
+
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+</IfModule>
+
+#AddHandler application/x-httpd-php54 .php
+#<IfModule mod_suphp.c>
+#   suPHP_ConfigPath /opt/php54/lib
+#</IfModule>
+#AddType application/x-httpd-php53 .php
+
+#php_flag display_errors 1
+
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php72 .php .php7 .phtml
+</IfModule>
+
+
+RewriteEngine On
+RewriteRule ^(\w+)\/?$ /url_resolver.php?e=$1
+
+RewriteCond %{REQUEST_METHOD} ^TRACE
+RewriteRule .* - [F]
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php7_module>
+   php_flag display_errors Off
+   php_value max_execution_time 3600
+   php_value max_input_time 3600
+   php_value max_input_vars 10000
+   php_value memory_limit 10000M
+   php_value post_max_size 10000M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/tmp"
+   php_value upload_max_filesize 10000M
+   php_flag zlib.output_compression Off
+</IfModule>
+<IfModule lsapi_module>
+   php_flag display_errors Off
+   php_value max_execution_time 3600
+   php_value max_input_time 3600
+   php_value max_input_vars 10000
+   php_value memory_limit 10000M
+   php_value post_max_size 10000M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/tmp"
+   php_value upload_max_filesize 10000M
+   php_flag zlib.output_compression Off
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php72” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php72 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

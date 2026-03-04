@@ -1,0 +1,113 @@
+form.join { float: left; padding: 15px 0 35px 0; }
+form.join .field { float: left; margin-bottom: 5px; }
+form.join .require-choice { padding-top: 5px; }
+form.join .require-choice .label { float: right !important; font-size: 12px !important; margin: 2px 0px 0px 5px; padding:0 !important; width: 93% !important; text-align:left !important; }
+form.join .require-choice .control { float:left !important; margin: 0px!important; width: auto; }
+
+form.join #field_tos { margin-top:10px; }
+form.join #field_age_verify { margin-bottom:20px; }
+form.join .field p { float: right !important; font-size: 12px !important; margin: 2px 0px 0px 5px; padding:0 !important; width: 100% !important; text-align:left !important; }
+.Login .Login p { float: right !important; font-size: 12px !important; margin: 12px 0px 0px 5px; padding:0 !important; width: 305px !important; text-align:left !important; }
+
+form.join .field .label, .form #field_username .label, .form #field_password .label { color: #fff; float: left; font-size: 15px; font-weight: normal; padding: 6px 0px 0px; text-align: right; width: 30%; }
+form.join .field .label_wide { color: #555; float: right; font-size: 12px; margin: 2px 0px 0px 5px; width: 285px; }
+
+/* Should be float left so that checkboxes aren't too far away from the labels, but they do need a little
+   bit of margin on the left so they're not too close */
+/*form.join .field .control,*/
+.form #field_username .control { /*     float: right; */
+	margin-left: 0; }
+
+.form #field_password .control  { /*     float: right; */
+	margin-left: 0; }
+
+.Login .Login .form { margin-bottom:15px; float:left; }
+.Login .form #field_username, .Login .form #field_password { margin-bottom:5px; float:left; }	
+
+form.join .control input[type="text"], form.join .control input[type="password"], form.join .control textarea, .form .control INPUT[type="text"], .form .control INPUT[type="password"]  { border: 1px solid #999; color: #777; float: right; font-size: 13px; padding: 7px 10px; resize: none; width: 100%; box-sizing: border-box; }
+form.join .control input[type="text"]:focus, form.join .control input[type="password"]:focus, form.join .control textarea:focus, .form .control INPUT[type="text"]:focus, .form .control INPUT[type="password"]:focus { background-color: #f6f5e6; }
+FORM { }
+FORM .field { width: 100%; float: left; }
+FORM .label { float: left; width: 250px; font-weight: bold; }
+FORM #field_stage_name .label, #field_ssn .label { float: left; width: 150px;font-weight: bold; }
+FORM .control { float: right; margin-bottom:8px; width: 67%; }
+FORM .textarea .control {float: left;width: 100%;}
+FORM .control TEXTAREA { width: 85%; height: 60px; max-width: 85%;margin-left: 10px;}
+FORM .control INPUT[type="text"] { width: 370px; padding:5px; }
+`
+/* Search Form */
+FORM#search { margin: 0px; padding: 0px; float: left; width: 400px; }
+FORM#search input#q { float: left; width: 300px; height: 16px; margin: 0px; padding: 5px 8px; font-size: 12px; border-top: solid 1px #000; border-bottom: solid 1px #000; border-left: solid 1px #000; color:#888; border-right:none; }
+FORM#search a { margin: 0px; padding: 0px; border-top: solid 1px #000; border-right: solid 1px #000; border-bottom: solid 1px #000; float:left; }
+
+#popup { width: 316px; height: 100%; position: absolute; top: 36px; left: 326px; z-index: 100; background-color: transparent; }
+#popup .result { float: left; clear: both; width: 295px; height: 32px; border-bottom: 1px solid #ccc; background-color: white; }
+#popup .result A { text-decoration: none; font-family: "Tahoma"; font-size: 15px; font-weight: bold; color: black; margin:5px 0px 0px 10px; }
+.search_result {
+	float: left;
+	clear: both;
+	width: 316px;
+	background-color: white;
+	height: 35px;
+}
+
+
+/* Login Form */
+FORM#login { margin: 20px 0px 0 0; padding: 0px; float: right; width: 500px; text-align:right; }
+#login input[type="text"], #login input[type="password"], textarea { width:160px; margin-right:15px; padding: 9px 10px; border: 1px solid #0e2136; resize:none; font-size:12px; color:#777; border-radius: 5px;}
+#login input[type="text"]:focus, #login input[type="password"]:focus, textarea:focus { background-color: #f6f5e6; }
+#login input[type="submit"] {
+border: 1px solid #c61e69; color: #FFF; cursor: pointer; padding: 9px 12px; font-size:12px; font-weight:bold; border-radius:5px;
+background: #c61e69; margin-top: 0px;
+}
+
+H1.join { font-family: "Tahoma"; font-size: 24px; color: #06396f; font-weight: normal; margin: 10px 0px 0px; padding: 0px 30px; }
+H2.join { font-family: "Tahoma"; font-size: 14px; color: #06396f; font-weight: normal; border-bottom: 1px solid #ccd5df; margin: 5px 0 10px; padding: 0px 30px 10px; }
+.join INPUT[type="submit"], .form .field .submit INPUT[type="submit"] { 
+border: 1px solid #1d5a05; color: #FFF; cursor: pointer; padding: 10px 45px; margin:20px 0 0 0px; font-size:14px; font-weight:bold; border-radius:3px; background: #d72464;
+}
+.form .field .submit {text-align: center;}
+
+FORM.compose_message TEXTAREA { width: 500px; height: 400px; }
+FORM.profile TEXTAREA { height: 400px; }
+
+/* Text size control */
+.text_small { font-size: 12px; }
+.text_med { font-size: 16px; }
+.text_large { font-size: 20px; }
+
+/* Headshot Setting Form */
+#squarifier { float: left; position: relative; width: 360px; height: 450px; background-repeat: no-repeat; }
+#square { position: absolute; width: 320px; height: 320px; left: 20px; top: 20px; border: 2px solid red; z-index: 1; }
+.purchase_img, .purchase_video { margin: 15px 10px 25px; float:left; width:97%; position: relative;text-align: center;min-height: 300px;}
+.purchase_img a, .purchase_video a{position: absolute; top: 0; left: 0;width: 100%;height: auto;cursor: pointer;text-decoration: none;
+    text-align: center;background: rgba(255,255,255,0.5);height: 100%;}
+.purchase_img a img, .purchase_video a img{ width: 30%; margin: auto; display: block; margin-bottom: 20px; margin-top: 50px;}
+.purchase_img a span, .purchase_video a span {padding: 5px 15px; margin-top: 15px; background: #f00;border: #f00;border-radius: 15px;text-decoration: none;
+    color: #fff; text-transform: uppercase;}
+.purchase_options { float: left; padding-left: 50px; width: 360px; }
+#field_show_for { display: none; }
+
+FORM input[type="submit"] {
+	margin-top: 5px;
+    background-color: #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    color: #555555;
+    font-family: "Tahoma";
+    font-size: 9pt;
+    font-weight: bold;
+    padding: 6px 20px;
+    text-decoration: none;
+}
+
+#field_comment .control textarea {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#field_comment .control {
+    text-align: center;
+}
+

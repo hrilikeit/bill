@@ -1,0 +1,160 @@
+@CHARSET "UTF-8";
+
+BODY {
+	font-family: "Tahoma", sans-serif;
+	color: black;
+	font-size: 11px;
+	background-color: #ccc;
+}
+
+.container_12 {
+	background-image: none;
+	background-color: white;
+}
+
+.right {text-align: right;}
+.left {text-align: left;}
+.alert {background-color: yellow;}
+
+TABLE {
+	width: 100%;
+}
+TABLE TH {
+	border-bottom: 1px solid black;
+	font-weight: bold;
+}
+
+.container P {
+	margin-left: 5px;
+	padding-bottom: 10px;
+}
+.container A {
+	color: red;
+}
+
+FORM {
+	margin-left: 10px;
+}
+
+FORM INPUT[type="text"], FORM INPUT[type="password"] {
+	width: 300px;
+}
+
+TEXTAREA {
+	width: 600px;
+	height: 140px;
+}
+TEXTAREA.richtext {
+	height: 500px;
+}
+
+FORM .label {
+	font-weight: bold;
+}
+FORM .control {
+	margin-bottom: 5px;
+}
+FORM .field {
+}
+
+/* The narrower form for the main section */
+FORM.narrow {
+	float: left;
+	width: 300px;
+}
+FORM.narrow INPUT[type="text"] {
+	width: 300px;
+}
+FORM.narrow TEXTAREA {
+	width: 300px;
+}
+
+.header_image {
+	background-image: url("/site_img/masthead_bg.png");
+	background-repeat: repeat-x;
+	height: 15px;
+	padding: 16px 0px;
+}
+
+.header_links {
+	padding: 5px 0px;
+	text-align: right;
+	font-size: 12px;
+	font-weight: bold;
+}
+.header_links A {
+	color: black;
+	text-decoration: none;
+}
+
+.footer {
+	padding: 5px 0px 20px 0px;
+}
+
+/* Admin Panel */
+.panel {
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 5px 0px 5px 0px;
+	border: 1px solid black;
+}
+.panel H1 {
+	background-color: black;
+	color: white;
+	padding: 3px;
+}
+
+/* Image formats: */
+IMG.thumbnail {
+	width: 128px;
+	margin: 2px 0px 2px 0px;
+	border-style: none none solid none;
+	border-bottom: 1px solid black;
+}
+IMG.web {
+	margin: 0px 10px 10px 0px;
+	float: left;
+	width: 240px;
+}
+IMG.placement_inactive {
+	opacity: 0.2;
+}
+
+H1, .bio H1 {
+	background-color: white;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px 0px 10px 0px;
+	padding: 0px;
+}
+
+H2, .bio H2 {
+	color: black;
+	margin: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.bio {
+	float: left;
+	clear: both;
+}
+
+.EntertainerChat TEXTAREA {
+	margin-top: 5px;
+	height: 80px;
+}
+
+.dash_scrollarea {
+	height: 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.gallery_entry {
+	float: left;
+	clear: both;
+	border-bottom: 1px solid black;
+}

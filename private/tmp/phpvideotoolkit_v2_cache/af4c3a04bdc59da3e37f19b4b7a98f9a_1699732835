@@ -1,0 +1,55 @@
+s:4104:"ffmpeg version 2.6.8 Copyright (c) 2000-2016 the FFmpeg developers
+  built with gcc 4.4.7 (GCC) 20120313 (Red Hat 4.4.7-16)
+  configuration: --prefix=/usr --bindir=/usr/bin --datadir=/usr/share/ffmpeg --incdir=/usr/include/ffmpeg --libdir=/usr/lib64 --mandir=/usr/share/man --arch=x86_64 --optflags='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' --enable-bzlib --disable-crystalhd --enable-gnutls --enable-ladspa --enable-libass --enable-libdc1394 --enable-libfaac --enable-nonfree --disable-indev=jack --enable-libfreetype --enable-libgsm --enable-libmp3lame --enable-openal --enable-libopenjpeg --enable-libopus --enable-libpulse --enable-libschroedinger --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libvorbis --enable-libv4l2 --enable-libx264 --enable-libx265 --enable-libxvid --enable-x11grab --enable-avfilter --enable-avresample --enable-postproc --enable-pthreads --disable-static --enable-shared --enable-gpl --disable-debug --disable-stripping --shlibdir=/usr/lib64 --enable-runtime-cpudetect
+  libavutil      54. 20.100 / 54. 20.100
+  libavcodec     56. 26.100 / 56. 26.100
+  libavformat    56. 25.101 / 56. 25.101
+  libavdevice    56.  4.100 / 56.  4.100
+  libavfilter     5. 11.102 /  5. 11.102
+  libavresample   2.  1.  0 /  2.  1.  0
+  libswscale      3.  1.101 /  3.  1.101
+  libswresample   1.  1.100 /  1.  1.100
+  libpostproc    53.  3.100 / 53.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/localstr/yourfanslive.com/private/library/trailer/2281.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf56.25.101
+  Duration: 00:00:37.54, start: 0.046440, bitrate: 3015 kb/s
+    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], 2841 kb/s, 30 fps, 30 tbr, 15360 tbn, 60 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 22050 Hz, stereo, fltp, 171 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Output #0, null, to '/dev/null':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf56.25.101
+    Stream #0:0(und): Video: rawvideo (I420 / 0x30323449), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 30 fps, 30 tbn, 30 tbc (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc56.26.100 rawvideo
+    Stream #0:1(und): Audio: pcm_s16le, 22050 Hz, stereo, s16, 705 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+      encoder         : Lavc56.26.100 pcm_s16le
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> rawvideo (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+frame=  134 fps=0.0 q=0.0 size=N/A time=00:00:04.64 bitrate=N/A    frame=  228 fps=227 q=0.0 size=N/A time=00:00:07.75 bitrate=N/A    frame=  357 fps=236 q=0.0 size=N/A time=00:00:12.12 bitrate=N/A    frame=  505 fps=250 q=0.0 size=N/A time=00:00:17.04 bitrate=N/A    frame=  649 fps=257 q=0.0 size=N/A time=00:00:21.78 bitrate=N/A    frame=  818 fps=270 q=0.0 size=N/A time=00:00:27.49 bitrate=N/A    frame=  993 fps=281 q=0.0 size=N/A time=00:00:33.29 bitrate=N/A    frame= 1125 fps=291 q=0.0 Lsize=N/A time=00:00:37.56 bitrate=N/A    
+video:105kB audio:3236kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[Parsed_volumedetect_0 @ 0x1c4af20] n_samples: 1656832
+[Parsed_volumedetect_0 @ 0x1c4af20] mean_volume: -36.3 dB
+[Parsed_volumedetect_0 @ 0x1c4af20] max_volume: -19.2 dB
+[Parsed_volumedetect_0 @ 0x1c4af20] histogram_19db: 12
+[Parsed_volumedetect_0 @ 0x1c4af20] histogram_20db: 40
+[Parsed_volumedetect_0 @ 0x1c4af20] histogram_21db: 37
+[Parsed_volumedetect_0 @ 0x1c4af20] histogram_22db: 121
+[Parsed_volumedetect_0 @ 0x1c4af20] histogram_23db: 296
+[Parsed_volumedetect_0 @ 0x1c4af20] histogram_24db: 561
+[Parsed_volumedetect_0 @ 0x1c4af20] histogram_25db: 1086";

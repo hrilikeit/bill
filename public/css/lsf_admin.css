@@ -1,0 +1,27 @@
+TABLE.admin, TABLE.StaysailReport {
+	border: 1px solid black;
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+}
+TABLE.admin TD, TABLE.StaysailReport TD {
+	padding: 2px 0px 2px 10px;
+}
+TABLE.StaysailReport TH {
+	font-weight: bold;
+}
+TABLE.StaysailReport TR {
+	border-bottom: 1px solid #777;
+}
+
+FORM.admin {
+	border: 1px solid black;
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+}
+FORM.admin .richtext {
+	width: 700px;
+	height: 350px;
+	margin-bottom: 30px;
+}

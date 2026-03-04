@@ -1,0 +1,38 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "yourfanslive",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "yourfanslive",
+  "start_url": "https://yourfanslive.com/",
+  "theme_color": "#ffffff",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "site_img/50.png",
+      "type": "image/png",
+      "sizes": "53x56"
+    },
+    {
+      "src": "/site_img/152.png",
+      "type": "image/png",
+      "sizes": "150x161"
+    },
+    {
+      "src": "/site_img/192.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/site_img/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "lang": "en",
+  "description": "The ultimate fan based community",
+  "id": "YourFansLive"
+}

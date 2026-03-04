@@ -1,0 +1,71 @@
+s:4361:"ffmpeg version 2.6.8 Copyright (c) 2000-2016 the FFmpeg developers
+  built with gcc 4.4.7 (GCC) 20120313 (Red Hat 4.4.7-16)
+  configuration: --prefix=/usr --bindir=/usr/bin --datadir=/usr/share/ffmpeg --incdir=/usr/include/ffmpeg --libdir=/usr/lib64 --mandir=/usr/share/man --arch=x86_64 --optflags='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic' --enable-bzlib --disable-crystalhd --enable-gnutls --enable-ladspa --enable-libass --enable-libdc1394 --enable-libfaac --enable-nonfree --disable-indev=jack --enable-libfreetype --enable-libgsm --enable-libmp3lame --enable-openal --enable-libopenjpeg --enable-libopus --enable-libpulse --enable-libschroedinger --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libvorbis --enable-libv4l2 --enable-libx264 --enable-libx265 --enable-libxvid --enable-x11grab --enable-avfilter --enable-avresample --enable-postproc --enable-pthreads --disable-static --enable-shared --enable-gpl --disable-debug --disable-stripping --shlibdir=/usr/lib64 --enable-runtime-cpudetect
+  libavutil      54. 20.100 / 54. 20.100
+  libavcodec     56. 26.100 / 56. 26.100
+  libavformat    56. 25.101 / 56. 25.101
+  libavdevice    56.  4.100 / 56.  4.100
+  libavfilter     5. 11.102 /  5. 11.102
+  libavresample   2.  1.  0 /  2.  1.  0
+  libswscale      3.  1.101 /  3.  1.101
+  libswresample   1.  1.100 /  1.  1.100
+  libpostproc    53.  3.100 / 53.  3.100
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x15de780] overread end of atom 'colr' by 1 bytes
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/localstr/yourfanslive.com/private/library/2265.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: mp42isomavc1
+    creation_time   : 2010-05-11 10:32:06
+    encoder         : HandBrake 0.9.4 2009112300
+  Duration: 00:00:12.61, start: 0.000000, bitrate: 202 kb/s
+    Chapter #0:0: start 0.000000, end 12.612000
+    Metadata:
+      title           : 
+    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(tv, smpte170m/smpte170m/bt709), 320x240, 80 kb/s, 29.65 fps, 29.97 tbr, 90k tbn, 59.31 tbc (default)
+    Metadata:
+      creation_time   : 2010-05-11 10:32:06
+      encoder         : JVT/AVC Coding
+    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 115 kb/s (default)
+    Metadata:
+      creation_time   : 2010-05-11 10:32:06
+    Stream #0:2(und): Subtitle: mov_text (text / 0x74786574), 0 kb/s
+    Metadata:
+      creation_time   : 2010-05-11 10:32:06
+Output #0, null, to '/dev/null':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: mp42isomavc1
+    encoder         : Lavf56.25.101
+    Chapter #0:0: start 0.000000, end 12.612000
+    Metadata:
+      title           : 
+    Stream #0:0(und): Video: rawvideo (I420 / 0x30323449), yuv420p, 320x240, q=2-31, 200 kb/s, 29.97 fps, 29.97 tbn, 29.97 tbc (default)
+    Metadata:
+      creation_time   : 2010-05-11 10:32:06
+      encoder         : Lavc56.26.100 rawvideo
+    Stream #0:1(und): Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s (default)
+    Metadata:
+      creation_time   : 2010-05-11 10:32:06
+      encoder         : Lavc56.26.100 pcm_s16le
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> rawvideo (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+[null @ 0x15f3c80] Encoder did not produce proper pts, making some up.
+frame=  374 fps=0.0 q=0.0 Lsize=N/A time=00:00:12.61 bitrate=N/A    
+video:35kB audio:2360kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+[Parsed_volumedetect_0 @ 0x15f8a20] n_samples: 1208320
+[Parsed_volumedetect_0 @ 0x15f8a20] mean_volume: -37.6 dB
+[Parsed_volumedetect_0 @ 0x15f8a20] max_volume: -14.4 dB
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_14db: 10
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_15db: 18
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_16db: 6
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_17db: 8
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_18db: 52
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_19db: 48
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_20db: 120
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_21db: 152
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_22db: 402
+[Parsed_volumedetect_0 @ 0x15f8a20] histogram_23db: 992";
