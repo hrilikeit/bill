@@ -27,47 +27,45 @@ class MessagesView
 
 	public function getMessageListHTML()
 	{
+		// NOTE: We intentionally do *not* load messages server-side here.
+		// Messages are loaded via AJAX (Unread / Read / Sent) with pagination.
+		// This improves initial page load time.
 		$writer = new StaysailWriter();
 
-		$messages = $this->Member->getMessages();
+		// Tabs
+		// NOTE: add whitespace between anchors so the UI is still readable even if CSS fails to load.
+		$writer->addHTML(
+			'<div class="button-container">'
+				. '<a href="#" data-type="unread" class="active">Unread</a> '
+				. '<a href="#" data-type="read">Read</a> '
+				. '<a href="#" data-type="sent">Sent</a>'
+			. '</div>'
+		);
 
+		// Heading (keeps the UI consistent with the old design)
+		$writer->addHTML('<h1 id="messagesHeading" class="inbox_new">New Messages</h1>');
 
-		$inbox = $read = $sent = '';
+		// Inline styles as a safety net (prevents UI from looking broken if a cached CSS file is served).
+		$writer->addHTML(
+			'<style>'
+			. '.button-container{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0;}'
+			. '.button-container a{display:inline-block;padding:6px 10px;border:1px solid #d1d1d1;border-radius:6px;text-decoration:none;background-color:#f5f5f5;color:#333;font-size:10pt;}'
+			. '.button-container a.active{background-color:#e8e8e8;border-color:#bdbdbd;font-weight:bold;}'
+			. '#messagesHeading{margin-top:15px;}'
+			. '#paginationContainer{display:flex;gap:6px;justify-content:center;align-items:center;flex-wrap:wrap;margin:12px 0 0 0;}'
+			. '#paginationContainer span{padding:0 6px;color:#777;}'
+			. '.pagination-page-btn{padding:5px 9px;border:1px solid #d1d1d1;border-radius:6px;background-color:#f5f5f5;cursor:pointer;}'
+			. '.pagination-page-btn.pagination-active{background-color:#e8e8e8;border-color:#bdbdbd;font-weight:bold;}'
+			. '.private_message_selector_unread_time{display:block;text-align:right;margin-right:10px;}'
+			. '</style>'
+		);
 
-		foreach ($messages as $Private_Message)
-		{
-			$selector_html = $Private_Message->getSelectorHTML();
-			if ($Private_Message->receive_time) {
-				$read .= $selector_html;
-			} else {
-				$inbox .= $selector_html;
-			}
-		}
+		$writer->addHTML('<div id="messagesContainer"></div>');
+		$writer->addHTML('<div id="paginationContainer"></div>');
 
-		$sent_messages = $this->Member->getSentMessages();
-		foreach ($sent_messages as $Private_Message)
-		{
-			$selector_html = $Private_Message->getSelectorHTML(true);
-			$sent .= $selector_html;
-		}
-
-		$writer->h1('New Messages', 'inbox_new');
-		$writer->addHTML($inbox);
-		if (!$inbox) {
-			$writer->p('You have no messages in your Inbox.');
-		}
-
-		$writer->h1('Read Messages', 'inbox_read');
-		$writer->addHTML($read);
-		if (!$read) {
-			$writer->p('You have no read messages.');
-		}
-
-		$writer->h1('Sent Messages', 'inbox_sent');
-		$writer->addHTML($sent);
-		if (!$sent) {
-			$writer->p('You have no sent messages.');
-		}
+		// Load the messages pagination script only on the Messages page.
+		// NOTE: Add a cache-buster so updated JS is picked up immediately after deployment.
+		$writer->addHTML('<script src="/js/messagesPagination.js?v=2" defer></script>');
 
 		return $writer->getHTML();
 	}

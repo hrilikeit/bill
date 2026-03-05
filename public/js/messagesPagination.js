@@ -1,7 +1,16 @@
+// Messages are loaded via AJAX so switching between Unread / Read / Sent and
+// pagination does not require a full page reload.
+
 let currentPage = 1;
 let currentType = "";
 let paginationInfo = null;
-let currentMessages = null;
+let currentMessages = [];
+
+// True if the user explicitly requested a type via URL parameter (?type=read etc).
+let initialTypeFromUrl = false;
+
+// Used to prevent race conditions when users click quickly between tabs/pages.
+let activeRequestController = null;
 
 function changeType() {
     const buttons = document.querySelectorAll('.button-container a');
@@ -10,39 +19,113 @@ function changeType() {
             button.addEventListener("click", async function (e) {
 
                 buttons.forEach(btn => btn.classList.remove("active"));
-                this.classList.toggle('active');
+                this.classList.add('active');
                 e.preventDefault();
                 const message_type = e.currentTarget.dataset.type;
                 currentPage = 1;
-                currentType = message_type;
-                await loadMessages();
-                renderPagination(paginationInfo);
-                renderMessages(currentMessages);
+                currentType = (message_type || '').toLowerCase();
+                updateHeading();
+                await refreshMessages();
             });
         });
     }
 }
 
+function highlightCurrentTypeTab() {
+    const buttons = document.querySelectorAll('.button-container a');
+    if (!buttons) return;
+
+    buttons.forEach(btn => {
+        if ((btn.dataset.type || '').toLowerCase() === (currentType || '').toLowerCase()) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+function updateHeading() {
+    const heading = document.getElementById('messagesHeading');
+    if (!heading) return;
+
+    const type = (currentType || '').toLowerCase();
+    if (type === 'read') {
+        heading.className = 'inbox_read';
+        heading.textContent = 'Read Messages';
+    } else if (type === 'sent') {
+        heading.className = 'inbox_sent';
+        heading.textContent = 'Sent Messages';
+    } else {
+        // Default to unread styling/text.
+        heading.className = 'inbox_new';
+        heading.textContent = 'New Messages';
+    }
+}
+
 async function loadMessages() {
-    await fetch("/?mode=Api&job=get_paginated_messages&type=" + currentType + "&page=" + currentPage, {
-        method: "GET",
-    })
-        .then(response => response.text())
-        .then(data => {
-            const parsedInfo = JSON.parse(data);
-            console.log(parsedInfo);
-            paginationInfo = parsedInfo.pagination;
-            currentMessages = parsedInfo.messages;
-        })
-        .catch(error => {
-            console.error("Error:", error);
+    // Abort any in-flight request.
+    if (activeRequestController && typeof activeRequestController.abort === 'function') {
+        activeRequestController.abort();
+    }
+
+    const supportsAbort = (typeof AbortController !== 'undefined');
+    activeRequestController = supportsAbort ? new AbortController() : null;
+
+    const url = "/?mode=Api&job=get_paginated_messages" +
+        "&type=" + encodeURIComponent(currentType) +
+        "&page=" + encodeURIComponent(currentPage);
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            },
+            credentials: "same-origin",
+            signal: activeRequestController ? activeRequestController.signal : undefined
         });
+
+        if (!response.ok) {
+            throw new Error("Request failed with status " + response.status);
+        }
+
+        const parsedInfo = await response.json();
+        paginationInfo = parsedInfo && parsedInfo.pagination ? parsedInfo.pagination : null;
+        currentMessages = parsedInfo && Array.isArray(parsedInfo.messages) ? parsedInfo.messages : [];
+    } catch (error) {
+        // Ignore abort errors (they happen when the user clicks quickly).
+        if (error && error.name === 'AbortError') {
+            return;
+        }
+        console.error("Error:", error);
+        paginationInfo = null;
+        currentMessages = [];
+
+        const container = document.getElementById('messagesContainer');
+        if (container) {
+            container.innerHTML = '';
+            const p = document.createElement('p');
+            p.textContent = 'Unable to load messages. Please refresh the page and try again.';
+            container.appendChild(p);
+        }
+        const pagination = document.getElementById('paginationContainer');
+        if (pagination) {
+            pagination.innerHTML = '';
+        }
+    }
 }
 
 
 function renderPagination(paginationInfo) {
-    const totalPages = paginationInfo.total_pages;
     const pagination = document.getElementById('paginationContainer');
+    if (!pagination) return;
+
+    if (!paginationInfo || !paginationInfo.total_pages || paginationInfo.total_pages <= 1) {
+        pagination.innerHTML = '';
+        return;
+    }
+
+    const totalPages = paginationInfo.total_pages;
     pagination.innerHTML = '';
 
     const delta = 2;
@@ -86,31 +169,51 @@ function renderPagination(paginationInfo) {
 function renderMessages(messages) {
 
     const container = document.getElementById('messagesContainer');
+    if (!container) return;
+
     container.innerHTML = '';
 
-    if(messages.length > 0) {
-
+    if (messages && messages.length > 0) {
         messages.forEach(message => {
-
             const link = document.createElement('a');
             link.href = message.link;
 
             const wrapper = document.createElement('div');
-            wrapper.className = message.is_read
+
+            // Keep the selector styling consistent with the legacy UI:
+            // - Inbox (Unread/Read): use "private_message_selector_unread"
+            // - Sent: use "private_message_selector"
+            wrapper.className = ((currentType || '').toLowerCase() === 'sent')
                 ? 'private_message_selector'
                 : 'private_message_selector_unread';
 
-            wrapper.innerHTML = `
-            <div style="margin-left: 45px;">
-                <strong>${message.name}</strong><br>
-            </div>
-            <img src="${message.avatar}" class="tiny_avatar" alt="">
-            ${message.from ? 'From ' + message.from : 'To ' + message.to} <br>
-            <div class="private_message_selector_unread_time">
-                On ${message.send_time}
-            </div>
-                       
-        `;
+            // Build DOM safely (avoid innerHTML to prevent XSS if a subject contains HTML).
+            const titleDiv = document.createElement('div');
+            titleDiv.style.marginLeft = '45px';
+
+            const strong = document.createElement('strong');
+            strong.textContent = message.name || '';
+            titleDiv.appendChild(strong);
+            titleDiv.appendChild(document.createElement('br'));
+
+            const img = document.createElement('img');
+            img.src = message.avatar || '';
+            img.className = 'tiny_avatar';
+            img.alt = '';
+
+            const fromToText = (message.from && message.from.length)
+                ? ('From ' + message.from)
+                : ('To ' + (message.to || ''));
+
+            const timeDiv = document.createElement('div');
+            timeDiv.className = 'private_message_selector_unread_time';
+            timeDiv.textContent = 'On ' + (message.send_time || '');
+
+            wrapper.appendChild(titleDiv);
+            wrapper.appendChild(img);
+            wrapper.appendChild(document.createTextNode(fromToText));
+            wrapper.appendChild(document.createElement('br'));
+            wrapper.appendChild(timeDiv);
 
             link.appendChild(wrapper);
             container.appendChild(link);
@@ -118,6 +221,7 @@ function renderMessages(messages) {
         return;
     }
 
+    let emptyText = '';
     switch (currentType) {
         case 'unread':
             emptyText = 'You have no messages in your Inbox.';
@@ -130,20 +234,94 @@ function renderMessages(messages) {
         case 'sent':
             emptyText = 'You have no sent messages.';
             break;
+
+        default:
+            emptyText = 'No messages found.';
+            break;
     }
 
-    const emptyTextElement = document.createElement('p').innerHTML = emptyText;
-    container.append(emptyTextElement);
+    const emptyTextElement = document.createElement('p');
+    emptyTextElement.textContent = emptyText;
+    container.appendChild(emptyTextElement);
 }
 
 async function goToPage(pageNumber = "0") {
     currentPage = pageNumber;
+    await refreshMessages(false);
+}
+
+async function refreshMessages(autoFallback = false) {
+    const container = document.getElementById('messagesContainer');
+    if (container) {
+        container.innerHTML = '';
+        const p = document.createElement('p');
+        p.textContent = 'Loading...';
+        container.appendChild(p);
+    }
+
     await loadMessages();
     renderPagination(paginationInfo);
     renderMessages(currentMessages);
+
+    // On the first load only (autoFallback=true):
+    // show Read if there are no Unread messages, and show Sent if there are no Read.
+    if (autoFallback && !initialTypeFromUrl && (!currentMessages || currentMessages.length === 0)) {
+        const type = (currentType || '').toLowerCase();
+        let nextType = '';
+        if (type === 'unread') {
+            nextType = 'read';
+        } else if (type === 'read') {
+            nextType = 'sent';
+        }
+
+        if (nextType) {
+            currentType = nextType;
+            currentPage = 1;
+            highlightCurrentTypeTab();
+            updateHeading();
+            await loadMessages();
+            renderPagination(paginationInfo);
+            renderMessages(currentMessages);
+        }
+    }
+}
+
+function setInitialTypeAndPage() {
+    // Prefer URL params if present, otherwise use the active tab (or fall back to "unread").
+    const params = new URLSearchParams(window.location.search);
+    const urlType = params.get('type');
+    const urlPage = parseInt(params.get('page') || '', 10);
+
+    initialTypeFromUrl = !!(urlType && urlType.length);
+
+    const activeBtn = document.querySelector('.button-container a.active') || document.querySelector('.button-container a[data-type]');
+    const domType = activeBtn && activeBtn.dataset ? activeBtn.dataset.type : '';
+
+    // If there are no unread messages, default to "read" so the user doesn't think
+    // they have *no* messages (legacy UI showed both sections on one page).
+    let defaultType = (domType || 'unread').toLowerCase();
+    if (!initialTypeFromUrl) {
+        const unreadCountEl = document.getElementById('dyn_Message');
+        const unreadCount = unreadCountEl ? parseInt((unreadCountEl.textContent || '').trim(), 10) : NaN;
+        if (!isNaN(unreadCount) && unreadCount <= 0) {
+            defaultType = 'read';
+        }
+    }
+
+    currentType = (urlType || defaultType || 'unread').toLowerCase();
+    currentPage = (!isNaN(urlPage) && urlPage > 0) ? urlPage : 1;
+
+    highlightCurrentTypeTab();
+    updateHeading();
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Only run on the Messages page.
+    if (!document.getElementById('messagesContainer')) {
+        return;
+    }
     changeType();
+    setInitialTypeAndPage();
+    refreshMessages(true);
 });
 

@@ -152,11 +152,79 @@ UL.image_list { margin-top: 20px; }
 .private_message_selector_unread strong { float:left; margin-bottom:5px; width:100%; }
 .private_message_selector_unread a { color: #333; text-decoration: none; }
 .private_message_selector_unread img.tiny_avatar { margin-right:10px; }
-.private_message_selector_unread_time {margin-left:450px; }
+.private_message_selector_unread_time {
+  display:block;
+  text-align:right;
+  margin-right:10px;
+}
 
 H1.inbox_new { border-bottom: 1px solid #ddd; color: #dd6682; font-size: 10pt; font-weight: normal; margin:30px 0 0 5px; padding:0 0 5px 0; text-transform: uppercase; }
 H1.inbox_read { border-bottom: 1px solid #ddd; color: #7abfe0; font-size: 10pt; font-weight: normal; margin:30px 0 0 5px; padding:0 0 5px 0; text-transform: uppercase; }
 H1.inbox_sent { border-bottom: 1px solid #ddd; color: #6d6; font-size: 10pt; font-weight: normal; margin:30px 0 0 5px; padding:0 0 5px 0; text-transform: uppercase; }
+
+/* Inbox: AJAX pagination */
+.button-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+/* Tighter spacing for the dynamic heading used by the AJAX inbox */
+#messagesHeading {
+  margin-top: 15px;
+}
+
+.button-container a {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 10pt;
+}
+
+.button-container a.active {
+    background-color: #e8e8e8;
+    border-color: #bdbdbd;
+    font-weight: bold;
+}
+
+#paginationContainer {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 12px 0 0 0;
+}
+
+#paginationContainer span {
+    padding: 0 6px;
+    color: #777;
+}
+
+.pagination-page-btn {
+    padding: 5px 9px;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.pagination-page-btn.pagination-active {
+    background-color: #e8e8e8;
+    border-color: #bdbdbd;
+    font-weight: bold;
+}
+
+.pagination-page-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
 .message {background-color: #efefef;width: 600px;border-radius: 8px;margin: 0 auto;padding: 20px;}
 .message h1 { font-size: 13pt; color:#333; font-weight:normal; float:left; width: 600px; line-height:30px; }
@@ -366,4 +434,63 @@ form.profile .mceLayout, form.profile iframe { height: 150px!important; }
     padding: 10px;
     border: 2px solid;
     margin: 10px;
+}
+
+/* ------------------------------------------------------------
+   FanHome layout improvements (small visual refresh)
+   ------------------------------------------------------------ */
+#fanHomeSubList {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+#favoriteBox, #mostPopularBox {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+#fanHomeSubList .sub_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#fanHomeSubList .sub_list a {
+    text-decoration: none;
+}
+
+#fanHomeSubList .avatar_link {
+    float: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.15);
+    min-width: 120px;
+}
+
+#fanHomeSubList .avatar_link:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+#fanHomeSubList .avatar_link img {
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+#fanHomeSubList .avatar_link img.little_avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+    #favoriteBox, #mostPopularBox { width: 100%; }
 }
