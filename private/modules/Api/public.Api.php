@@ -19,6 +19,10 @@ class Api extends StaysailPublic
         $job = StaysailIO::get('job');
 
         switch ($job) {
+            case 'get_paginated_messages':
+                $data = $this->getPaginatedMessages();
+                break;
+
             case 'start_livestreaming_meeting':
                 $data = $this->startLivestreamingMeeting();
                 break;
@@ -59,7 +63,161 @@ class Api extends StaysailPublic
         die;
     }
 
-    private function startLivestreamingMeeting()
+    
+    /**
+     * Messages inbox pagination endpoint.
+     *
+     * GET params:
+     *   - type: unread | read | sent
+     *   - page: 1..n
+     *
+     * Response:
+     *   {
+     *     pagination: { page, per_page, total_items, total_pages },
+     *     messages: [ { id, link, name, avatar, from, to, send_time, is_read } ]
+     *   }
+     */
+    private function getPaginatedMessages()
+    {
+        $member_id = StaysailIO::session('Member.id');
+        if (!$member_id && isset($_SESSION['Member.id'])) {
+            $member_id = $_SESSION['Member.id'];
+        }
+
+        if (!$member_id) {
+            if (function_exists('http_response_code')) {
+                http_response_code(401);
+            }
+            return ['error' => 'Unauthorized'];
+        }
+
+        $type = strtolower(trim((string) StaysailIO::get('type')));
+        $page = (int) StaysailIO::get('page');
+        if ($page < 1) {
+            $page = 1;
+        }
+
+        // Keep the page size modest for faster responses.
+        $per_page = 10;
+
+        $Member = new Member($member_id);
+
+        // Fetch messages for the requested type.
+        $messages = [];
+        if ($type === 'sent') {
+            $messages = $Member->getSentMessages();
+        } else {
+            // Both "read" and "unread" are based on inbound messages.
+            $all = $Member->getMessages();
+            foreach ($all as $Private_Message) {
+                $is_read = (bool) $Private_Message->receive_time;
+                if ($type === 'read' && $is_read) {
+                    $messages[] = $Private_Message;
+                } elseif (($type === 'unread' || $type === '') && !$is_read) {
+                    $messages[] = $Private_Message;
+                }
+            }
+            if ($type !== 'read' && $type !== 'unread') {
+                // Default to unread when the type is missing/invalid.
+                $type = 'unread';
+            }
+        }
+
+        $total_items = is_array($messages) ? count($messages) : 0;
+        $total_pages = $total_items ? (int) ceil($total_items / $per_page) : 0;
+        if ($total_pages && $page > $total_pages) {
+            $page = $total_pages;
+        }
+
+        $offset = ($page - 1) * $per_page;
+        $page_messages = is_array($messages) ? array_slice($messages, $offset, $per_page) : [];
+
+        $out_messages = [];
+        foreach ($page_messages as $Private_Message) {
+            if (!$Private_Message || !isset($Private_Message->id)) {
+                continue;
+            }
+
+            $is_read = (bool) $Private_Message->receive_time;
+            $subject = (string) $Private_Message->name;
+
+            // Format matches the existing UI (see Private_Message::getSelectorHTML).
+            $send_time = '';
+            if (!empty($Private_Message->send_time)) {
+                $send_time = date('m/d/y h:ia', strtotime($Private_Message->send_time));
+            }
+
+            $link = "?mode=Message&job=read&id={$Private_Message->id}";
+
+            $from = '';
+            $to = '';
+            $avatar = '';
+
+            if ($type === 'sent') {
+                $recipient = $Private_Message->getToMember();
+                if ($recipient && !empty($recipient->id)) {
+                    $to = (string) $recipient->name;
+                    $avatar = $this->getMemberAvatarURLSafe($recipient);
+                } else {
+                    $to = '???';
+                    $avatar = '/avatar.php?a=0';
+                }
+            } else {
+                // Unread / Read (inbound)
+                if (!empty($Private_Message->from_Admin_id)) {
+                    $from = 'LSF Admin';
+                    $avatar = '/avatar.php?a=0';
+                } else {
+                    $sender = $Private_Message->getFromMember();
+                    if ($sender && !empty($sender->id)) {
+                        $from = (string) $sender->name;
+                        $avatar = $this->getMemberAvatarURLSafe($sender);
+                    } else {
+                        $from = '???';
+                        $avatar = '/avatar.php?a=0';
+                    }
+                }
+            }
+
+            $out_messages[] = [
+                'id' => (int) $Private_Message->id,
+                'link' => $link,
+                'name' => $subject,
+                'avatar' => $avatar,
+                'from' => $from,
+                'to' => $to,
+                'send_time' => $send_time,
+                'is_read' => $is_read,
+            ];
+        }
+
+        return [
+            'pagination' => [
+                'page' => $page,
+                'per_page' => $per_page,
+                'total_items' => $total_items,
+                'total_pages' => $total_pages,
+            ],
+            'messages' => $out_messages,
+        ];
+    }
+
+    /**
+     * Returns a safe avatar URL for a member.
+     * Uses the entertainer avatar if available, otherwise falls back to /avatar.php.
+     */
+    private function getMemberAvatarURLSafe(Member $Member)
+    {
+        // Prefer entertainer avatar if one exists.
+        $Entertainer = $Member->getAccountOfType('Entertainer');
+        if ($Entertainer && method_exists($Member, 'hasEntertainerAvatar') && $Member->hasEntertainerAvatar()) {
+            return $Member->getEntertainerAvatarURL();
+        }
+        return $Member->getAvatarURL();
+    }
+
+
+private function startLivestreamingMeeting()
     {
         $meetingId = StaysailIO::get('meeting_id');
         //$MemberId = StaysailIO::get('Member_id');
