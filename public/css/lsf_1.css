@@ -369,29 +369,17 @@ img { max-width: 100%; }
 .profile-bottom-section .left-section { width: 48.5%; float: left; clear: both;}
 .left-section .header { color: #555 }
 .left-section .content {margin: 0;float: left;width: 100%; padding: 10px;box-sizing: border-box;position: relative;}
-/* Post content links:
-   - Default anchors must stay in normal flow so media (photos/videos) remains visible.
-   - Only completely empty anchors are used as full-content click overlays. */
-.main_post .content a {
+/* FIX (Mar 6): Do not absolutely-position post content links.
+   Absolute positioning was clipping/hiding images/videos in Events/Profile feeds. */
+.main_post .content > a  {
     position: relative;
-    top: auto;
-    left: auto;
-    width: auto;
+    display: block;
+    width: 100%;
     height: auto;
     cursor: pointer;
     text-decoration: none;
-    background: transparent;
-    text-align: inherit;
-}
-
-.main_post .content > a:empty {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
     text-align: center;
+    background: transparent;
 }
 .left-section .comment_opener { box-sizing: border-box; width: 100%; }
 .profile-bottom-section .right-section { width: 48.5%; float: right;}
