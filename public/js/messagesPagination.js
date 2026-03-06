@@ -175,48 +175,56 @@ function renderMessages(messages) {
 
     if (messages && messages.length > 0) {
         messages.forEach(message => {
-            const link = document.createElement('a');
-            link.href = message.link;
-
-            const wrapper = document.createElement('div');
-
             // Keep the selector styling consistent with the legacy UI:
             // - Inbox (Unread/Read): use "private_message_selector_unread"
             // - Sent: use "private_message_selector"
+            const wrapper = document.createElement('div');
             wrapper.className = ((currentType || '').toLowerCase() === 'sent')
                 ? 'private_message_selector'
                 : 'private_message_selector_unread';
 
-            // Build DOM safely (avoid innerHTML to prevent XSS if a subject contains HTML).
-            const titleDiv = document.createElement('div');
-            titleDiv.style.marginLeft = '45px';
+            // IMPORTANT: legacy CSS expects the <a> to be INSIDE the wrapper.
+            // Previously we wrapped the <div> inside the <a>, which caused link text
+            // to inherit the global A{color:#fff} and appear "blank".
+            const link = document.createElement('a');
+            link.href = message.link;
+            link.style.display = 'block';
 
-            const strong = document.createElement('strong');
-            strong.textContent = message.name || '';
-            titleDiv.appendChild(strong);
-            titleDiv.appendChild(document.createElement('br'));
-
+            // Avatar (float left like the original design)
             const img = document.createElement('img');
             img.src = message.avatar || '';
             img.className = 'tiny_avatar';
             img.alt = '';
+            img.style.cssText = 'float:left; margin:0 10px 0 10px;';
+
+            // Text content
+            const textWrap = document.createElement('div');
+            textWrap.style.overflow = 'hidden';
+
+            const strong = document.createElement('strong');
+            strong.textContent = message.name || '';
+            // Override legacy float styling so the subject doesn't break layout.
+            strong.style.cssText = 'float:none; width:auto; display:block; margin-bottom:3px;';
 
             const fromToText = (message.from && message.from.length)
                 ? ('From ' + message.from)
                 : ('To ' + (message.to || ''));
 
+            const fromTo = document.createElement('div');
+            fromTo.textContent = fromToText;
+
             const timeDiv = document.createElement('div');
             timeDiv.className = 'private_message_selector_unread_time';
             timeDiv.textContent = 'On ' + (message.send_time || '');
 
-            wrapper.appendChild(titleDiv);
-            wrapper.appendChild(img);
-            wrapper.appendChild(document.createTextNode(fromToText));
-            wrapper.appendChild(document.createElement('br'));
-            wrapper.appendChild(timeDiv);
+            textWrap.appendChild(strong);
+            textWrap.appendChild(fromTo);
+            textWrap.appendChild(timeDiv);
 
-            link.appendChild(wrapper);
-            container.appendChild(link);
+            link.appendChild(img);
+            link.appendChild(textWrap);
+            wrapper.appendChild(link);
+            container.appendChild(wrapper);
         });
         return;
     }

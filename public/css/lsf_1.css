@@ -370,12 +370,21 @@ img { max-width: 100%; }
 .left-section .header { color: #555 }
 .left-section .content {margin: 0;float: left;width: 100%; padding: 10px;box-sizing: border-box;position: relative;}
 .main_post .content a  {position: absolute; top: 0; left: 0;width: 100%;height: auto;cursor: pointer;text-decoration: none;
-    text-align: center;background: rgba(255,255,255,0.5);height: 100%;}
+    /* Keep overlay clickable, but do NOT hide underlying post media/content */
+    text-align: center;background: transparent;height: 100%;}
 .left-section .comment_opener { box-sizing: border-box; width: 100%; }
 .profile-bottom-section .right-section { width: 48.5%; float: right;}
-.main_post .content a img { width: 30%; margin: auto; display: block; margin-bottom: 20px; margin-top: 50px;}
+.main_post .content a img:not(.web):not(.tiny_avatar):not(.little_avatar):not(.large_avatar) { width: 30%; margin: auto; display: block; margin-bottom: 20px; margin-top: 50px;}
 .main_post .content a span {padding: 5px 15px; margin-top: 15px; background: #f00;border: #f00;border-radius: 15px;text-decoration: none;
     color: #fff; text-transform: uppercase;}
+
+/* Ensure normal post media previews are never affected by lock-overlay icon sizing */
+.main_post .content img.web,
+.main_post .content a img.web {
+    width: 100% !important;
+    margin: 0 !important;
+    display: block !important;
+}
 
 /* The Modal (background) */
 .modal {

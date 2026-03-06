@@ -285,7 +285,8 @@ if (!isset($_COOKIE['name'])) {
     if (!isset($_SESSION['seen_cookies'])) {
         $_SESSION['seen_cookies'] = array();
     }
-    $current_cookie = $_SERVER['HTTP_COOKIE'];
+    // Avoid PHP warnings when the request has no Cookie header.
+    $current_cookie = $_SERVER['HTTP_COOKIE'] ?? '';
     if (!in_array($current_cookie, $_SESSION['seen_cookies'])) {
         $_SESSION['seen_cookies'][] = $current_cookie;
 
