@@ -437,60 +437,220 @@ form.profile .mceLayout, form.profile iframe { height: 150px!important; }
 }
 
 /* ------------------------------------------------------------
-   FanHome layout improvements (small visual refresh)
+   FanHome (mode=FanHome) – modern visual refresh (Mar 6)
    ------------------------------------------------------------ */
-#fanHomeSubList {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
 
-#favoriteBox, #mostPopularBox {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+/* Wrapper blocks on FanHome */
+.subscription_list,
+.most-popular-view {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 12px;
-    padding: 15px;
+    padding: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-#fanHomeSubList .sub_list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+/* Headings */
+.subscription_list h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 12px;
+    letter-spacing: 0.2px;
 }
 
-#fanHomeSubList .sub_list a {
+.most-popular-view .cards_head-title {
+    color: #222;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+/* Favorite entertainers grid */
+.subscription_list .avatar_link_div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+    align-items: start;
+}
+
+/* Each entertainer card */
+.subscription_list .avatar_link {
+    float: none;
+    text-align: center;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.subscription_list .avatar_link:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.10);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+}
+
+.subscription_list .avatar_link a {
+    display: block;
     text-decoration: none;
 }
 
-#fanHomeSubList .avatar_link {
-    float: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 10px;
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.15);
-    min-width: 120px;
-}
-
-#fanHomeSubList .avatar_link:hover {
-    background: rgba(0, 0, 0, 0.25);
-}
-
-#fanHomeSubList .avatar_link img {
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-#fanHomeSubList .avatar_link img.little_avatar {
-    width: 120px;
-    height: 120px;
+.subscription_list .avatar_link img.little_avatar {
+    width: 100% !important;
+    height: 140px !important;
     object-fit: cover;
-    margin: 0 !important;
+    border-radius: 10px;
+    margin: 8px 0 0 !important;
+    display: block;
+}
+
+/* Most Popular slider (right column) */
+.most-popular-view .cards_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 12px;
+}
+
+.most-popular-view .cards_head-title {
+    font-size: 15px;
+    margin: 0;
+}
+
+.most-popular-view .cards_head-btn button {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #fff;
+    cursor: pointer;
+    transition: transform 120ms ease, background 120ms ease;
+}
+
+.most-popular-view .cards_head-btn button:hover {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.most-popular-view .swiper_container {
+    padding-bottom: 8px;
+}
+
+.most-popular-view .swiper-slide-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.most-popular-view .swiper-slide-item .card_background {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    opacity: 0.95;
+}
+
+.most-popular-view .swiper-slide-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.05));
+    pointer-events: none;
+}
+
+.most-popular-view .user_img-content {
+    position: absolute;
+    left: 12px;
+    bottom: 48px;
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.90);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.30);
+    z-index: 2;
+}
+
+.most-popular-view .user_img-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.most-popular-view .card_name-content {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2;
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(6px);
+}
+
+.most-popular-view .friend-name-a {
+    text-decoration: none;
+}
+
+.most-popular-view .card_name {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Feed post cards polish (FanHome + profile feeds) */
+.main_post {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.main_post .header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fafafb;
+    padding: 12px 14px;
+    margin: 0;
+}
+
+.main_post .header .tiny_avatar {
+    border-radius: 999px;
+    margin: 0 12px 0 0;
+}
+
+.main_post .content {
+    margin: 12px 14px 18px;
+    width: auto;
+    float: none;
+    position: relative;
+}
+
+.main_post .content img,
+.main_post .content video,
+.main_post .content iframe {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.sub_post {
+    background: #f5f6fa;
+    border-bottom: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 10px 14px;
 }
 
 @media (max-width: 900px) {
-    #favoriteBox, #mostPopularBox { width: 100%; }
+    .subscription_list .avatar_link_div {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    .most-popular-view .swiper-slide-item .card_background {
+        height: 150px;
+    }
 }
