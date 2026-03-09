@@ -152,79 +152,11 @@ UL.image_list { margin-top: 20px; }
 .private_message_selector_unread strong { float:left; margin-bottom:5px; width:100%; }
 .private_message_selector_unread a { color: #333; text-decoration: none; }
 .private_message_selector_unread img.tiny_avatar { margin-right:10px; }
-.private_message_selector_unread_time {
-  display:block;
-  text-align:right;
-  margin-right:10px;
-}
+.private_message_selector_unread_time { display:block; text-align:right; margin-right:10px; }
 
 H1.inbox_new { border-bottom: 1px solid #ddd; color: #dd6682; font-size: 10pt; font-weight: normal; margin:30px 0 0 5px; padding:0 0 5px 0; text-transform: uppercase; }
 H1.inbox_read { border-bottom: 1px solid #ddd; color: #7abfe0; font-size: 10pt; font-weight: normal; margin:30px 0 0 5px; padding:0 0 5px 0; text-transform: uppercase; }
 H1.inbox_sent { border-bottom: 1px solid #ddd; color: #6d6; font-size: 10pt; font-weight: normal; margin:30px 0 0 5px; padding:0 0 5px 0; text-transform: uppercase; }
-
-/* Inbox: AJAX pagination */
-.button-container {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 10px 0;
-}
-
-/* Tighter spacing for the dynamic heading used by the AJAX inbox */
-#messagesHeading {
-  margin-top: 15px;
-}
-
-.button-container a {
-    display: inline-block;
-    padding: 6px 10px;
-    border: 1px solid #d1d1d1;
-    border-radius: 6px;
-    text-decoration: none;
-    background-color: #f5f5f5;
-    color: #333;
-    font-size: 10pt;
-}
-
-.button-container a.active {
-    background-color: #e8e8e8;
-    border-color: #bdbdbd;
-    font-weight: bold;
-}
-
-#paginationContainer {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 12px 0 0 0;
-}
-
-#paginationContainer span {
-    padding: 0 6px;
-    color: #777;
-}
-
-.pagination-page-btn {
-    padding: 5px 9px;
-    border: 1px solid #d1d1d1;
-    border-radius: 6px;
-    background-color: #f5f5f5;
-    cursor: pointer;
-}
-
-.pagination-page-btn.pagination-active {
-    background-color: #e8e8e8;
-    border-color: #bdbdbd;
-    font-weight: bold;
-}
-
-.pagination-page-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
 
 .message {background-color: #efefef;width: 600px;border-radius: 8px;margin: 0 auto;padding: 20px;}
 .message h1 { font-size: 13pt; color:#333; font-weight:normal; float:left; width: 600px; line-height:30px; }
@@ -369,31 +301,13 @@ img { max-width: 100%; }
 .profile-bottom-section .left-section { width: 48.5%; float: left; clear: both;}
 .left-section .header { color: #555 }
 .left-section .content {margin: 0;float: left;width: 100%; padding: 10px;box-sizing: border-box;position: relative;}
-/* FIX (Mar 6): Do not absolutely-position post content links.
-   Absolute positioning was clipping/hiding images/videos in Events/Profile feeds. */
-.main_post .content > a  {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    background: transparent;
-}
+.main_post .content a  {position: absolute; top: 0; left: 0;width: 100%;height: auto;cursor: pointer;text-decoration: none;
+    text-align: center;background: rgba(255,255,255,0.5);height: 100%;}
 .left-section .comment_opener { box-sizing: border-box; width: 100%; }
 .profile-bottom-section .right-section { width: 48.5%; float: right;}
-.main_post .content a img:not(.web):not(.tiny_avatar):not(.little_avatar):not(.large_avatar) { width: 30%; margin: auto; display: block; margin-bottom: 20px; margin-top: 50px;}
+.main_post .content a img { width: 30%; margin: auto; display: block; margin-bottom: 20px; margin-top: 50px;}
 .main_post .content a span {padding: 5px 15px; margin-top: 15px; background: #f00;border: #f00;border-radius: 15px;text-decoration: none;
     color: #fff; text-transform: uppercase;}
-
-/* Ensure normal post media previews are never affected by lock-overlay icon sizing */
-.main_post .content img.web,
-.main_post .content a img.web {
-    width: 100% !important;
-    margin: 0 !important;
-    display: block !important;
-}
 
 /* The Modal (background) */
 .modal {
@@ -454,221 +368,125 @@ form.profile .mceLayout, form.profile iframe { height: 150px!important; }
     margin: 10px;
 }
 
-/* ------------------------------------------------------------
-   FanHome (mode=FanHome) – modern visual refresh (Mar 6)
-   ------------------------------------------------------------ */
-
-/* Wrapper blocks on FanHome */
-.subscription_list,
-.most-popular-view {
-    background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 14px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* Headings */
-.subscription_list h2 {
-    font-size: 16px;
-    font-weight: 700;
-    color: #222;
-    margin: 0 0 12px;
-    letter-spacing: 0.2px;
-}
-
-.most-popular-view .cards_head-title {
-    color: #222;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-}
-
-/* Favorite entertainers grid */
-.subscription_list .avatar_link_div {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 14px;
-    align-items: start;
-}
-
-/* Each entertainer card */
-.subscription_list .avatar_link {
-    float: none;
-    text-align: center;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-    transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
-}
-
-.subscription_list .avatar_link:hover {
-    transform: translateY(-2px);
-    border-color: rgba(0, 0, 0, 0.10);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
-}
-
-.subscription_list .avatar_link a {
-    display: block;
-    text-decoration: none;
-}
-
-.subscription_list .avatar_link img.little_avatar {
-    width: 100% !important;
-    height: 140px !important;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 8px 0 0 !important;
-    display: block;
-}
-
-/* Most Popular slider (right column) */
-.most-popular-view .cards_head {
+/* Inbox: AJAX pagination */
+.button-container {
     display: flex;
+    gap: 10px;
     align-items: center;
-    justify-content: space-between;
-    margin: 0 0 12px;
+    flex-wrap: wrap;
+    margin: 10px 0;
 }
 
-.most-popular-view .cards_head-title {
-    font-size: 15px;
-    margin: 0;
+#messagesHeading {
+    margin-top: 15px;
 }
 
-.most-popular-view .cards_head-btn button {
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    background: #fff;
+.button-container a {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 10pt;
+}
+
+.button-container a.active {
+    background-color: #e8e8e8;
+    border-color: #bdbdbd;
+    font-weight: bold;
+}
+
+#paginationContainer {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 12px 0 0 0;
+}
+
+#paginationContainer span {
+    padding: 0 6px;
+    color: #777;
+}
+
+.pagination-page-btn {
+    padding: 5px 9px;
+    border: 1px solid #d1d1d1;
+    border-radius: 6px;
+    background-color: #f5f5f5;
     cursor: pointer;
-    transition: transform 120ms ease, background 120ms ease;
 }
 
-.most-popular-view .cards_head-btn button:hover {
-    transform: scale(1.05);
-    background: rgba(0, 0, 0, 0.04);
+.pagination-page-btn.pagination-active {
+    background-color: #e8e8e8;
+    border-color: #bdbdbd;
+    font-weight: bold;
 }
 
-.most-popular-view .swiper_container {
-    padding-bottom: 8px;
+.pagination-page-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-.most-popular-view .swiper-slide-item {
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+
+/* ------------------------------------------------------------
+   FanHome layout improvements (small visual refresh)
+   ------------------------------------------------------------ */
+#fanHomeSubList {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-.most-popular-view .swiper-slide-item .card_background {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    display: block;
-    opacity: 0.95;
-}
-
-.most-popular-view .swiper-slide-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.05));
-    pointer-events: none;
-}
-
-.most-popular-view .user_img-content {
-    position: absolute;
-    left: 12px;
-    bottom: 48px;
-    width: 54px;
-    height: 54px;
-    border-radius: 999px;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.90);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.30);
-    z-index: 2;
-}
-
-.most-popular-view .user_img-content img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.most-popular-view .card_name-content {
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    z-index: 2;
-    padding: 8px 10px;
+#favoriteBox, #mostPopularBox {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(6px);
+    padding: 15px;
 }
 
-.most-popular-view .friend-name-a {
+#fanHomeSubList .sub_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#fanHomeSubList .sub_list a {
     text-decoration: none;
 }
 
-.most-popular-view .card_name {
-    margin: 0;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
-}
-
-/* Feed post cards polish (FanHome + profile feeds) */
-.main_post {
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-}
-
-.main_post .header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    background: #fafafb;
-    padding: 12px 14px;
-    margin: 0;
-}
-
-.main_post .header .tiny_avatar {
-    border-radius: 999px;
-    margin: 0 12px 0 0;
-}
-
-.main_post .content {
-    margin: 12px 14px 18px;
-    width: auto;
+#fanHomeSubList .avatar_link {
     float: none;
-    position: relative;
-}
-
-.main_post .content img,
-.main_post .content video,
-.main_post .content iframe {
-    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
     border-radius: 12px;
+    background: rgba(0, 0, 0, 0.15);
+    min-width: 120px;
 }
 
-.sub_post {
-    background: #f5f6fa;
-    border-bottom: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    padding: 10px 14px;
+#fanHomeSubList .avatar_link:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+#fanHomeSubList .avatar_link img {
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+#fanHomeSubList .avatar_link img.little_avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: 0 !important;
 }
 
 @media (max-width: 900px) {
-    .subscription_list .avatar_link_div {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    }
-    .most-popular-view .swiper-slide-item .card_background {
-        height: 150px;
-    }
+    #favoriteBox, #mostPopularBox { width: 100%; }
 }

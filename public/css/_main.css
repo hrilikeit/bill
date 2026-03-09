@@ -1928,3 +1928,24 @@ form.join .field .label {
 #intLink {
     display: flex;
 }
+
+/* ------------------------------------------------------------
+   Profile page hotfix: keep subscription/action buttons clickable
+   ------------------------------------------------------------ */
+#content > .purchase_img,
+#content > .purchase_img form,
+#content > .purchase_img a,
+.profile-top-section .summary-div,
+.profile-top-section .summary-div a,
+.profile-top-section .summary-div .button,
+.profile-top-section .summary-div input,
+.profile-top-section .summary-div button {
+    position: relative !important;
+    z-index: 30 !important;
+    pointer-events: auto !important;
+}
+
+.profile-top-section .avatar-photo {
+    position: relative;
+    z-index: 10;
+}
