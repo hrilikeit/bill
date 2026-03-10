@@ -673,3 +673,35 @@
         padding-top: 70px;
     }
 }
+
+@media only screen and (max-width: 992px) {
+    .profile-top-section .summary-div .entertainer-summary .name_content-container,
+    .profile-top-section .summary-div .entertainer-summary .fun_edit-btn,
+    .profile-top-section .summary-div .entertainer-summary .profile-buttons {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .profile-top-section .summary-div .entertainer-summary .blue_subscription,
+    .profile-top-section .summary-div .entertainer-summary .blue_unsubscription {
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: 260px;
+        margin: 10px auto 0 !important;
+    }
+
+    #field_plans_provider .control,
+    #field_plans_provider .control select,
+    #field_plans_provider .plan_input,
+    #field_plans_provider .plan_input input {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        box-sizing: border-box;
+    }
+}

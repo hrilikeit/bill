@@ -932,6 +932,21 @@ __END__;
             ->addField(StaysailForm::Text, 'About', 'bio', 'richtext')
             ->addField(StaysailForm::Boolean, 'Keep your profile private', 'private')
             ->addField(StaysailForm::Select, 'Set your marketing preference<br/><a onclick="alert(\'Your marketing preference allows you to notify fans when you add a new picture!\n\nClub: Photo updates go to your fans only.\nRegional: Photo updates go to all your fans in your state.\nNational: Photo updates go to all fans.\');">(What is this?)</a>', 'marketing', '', $marketing)
+            ->addHTML('<div class="field required select select" id="field_plans_provider">
+                            <div class="label">Subscription Price</div>
+                            <div class="control">
+                                <select class="required select" id="plane_select">
+                                    <option value="0" ' . $selectedFree . '>Free</option>
+                                    <option value="4.97" ' . $selectedStandard . '>4.97$</option>
+                                    <option value="custom" ' . $selectedCustom . '>Custom</option>
+                                </select>
+                            </div>
+                            <input id="plan_input_val_hidden" type="hidden" name="subscription_pricing" min="0" step="0.01" value="' . htmlspecialchars($plans, ENT_QUOTES, 'UTF-8') . '">
+                            <div class="plan_input ' . $selectedCustomClass . '">
+                                <input id="plan_input_val" type="number" min="4.97" step="0.01" value="' . htmlspecialchars($plans, ENT_QUOTES, 'UTF-8') . '">
+                                <p>Enter 0 for free or any custom price from $4.97 and up.</p>
+                            </div>
+                        </div>')
 //            ->addHTML('<br/><h1>SMS Notification</h1>
 //						<p>If you wish to be notified by text message when you get a new Fan, provide the
 //						phone number and service provider below.  This information will not be made public,
@@ -985,7 +1000,22 @@ __END__;
         $this->Entertainer->private = StaysailIO::post('private') ? 1 : 0;
         $this->Entertainer->marketing = StaysailIO::post('marketing');
         $this->Entertainer->birth_date = date('Y-m-d', strtotime(StaysailIO::post('birth_date_fmt')));
-        $this->Entertainer->subscription_pricing = StaysailIO::post('subscription_pricing');
+
+        $postedSubscriptionPricing = trim((string) StaysailIO::post('subscription_pricing'));
+
+        if ($postedSubscriptionPricing === '') {
+            $postedSubscriptionPricing = (string) $this->Entertainer->subscription_pricing;
+        }
+
+        if (is_numeric($postedSubscriptionPricing)) {
+            $postedSubscriptionPricingFloat = round((float) $postedSubscriptionPricing, 2);
+
+            if ($postedSubscriptionPricingFloat !== 0.0 && $postedSubscriptionPricingFloat < 4.97) {
+                $postedSubscriptionPricingFloat = 4.97;
+            }
+
+            $this->Entertainer->subscription_pricing = number_format($postedSubscriptionPricingFloat, 2, '.', '');
+        }
 
         // Pricing
         /*
