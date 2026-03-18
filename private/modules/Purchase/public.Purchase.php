@@ -465,9 +465,22 @@ class Purchase extends StaysailPublic
         $name = 'Hi-Res Image';
 
         $getID3 = new getID3;
-        $file = $getID3->analyze('../private/library/' . $Library->image);
-        $width = $file['video']['resolution_x'];
-        $height = $file['video']['resolution_y'];
+        $video_path = '../private/library/' . $Library->image;
+        if ((!file_exists($video_path) || !is_file($video_path)) && defined('DATAROOT')) {
+            $absolute_video_path = rtrim(DATAROOT, '/') . '/private/library/' . $Library->image;
+            if (file_exists($absolute_video_path) && is_file($absolute_video_path)) {
+                $video_path = $absolute_video_path;
+            }
+        }
+
+        $file = array();
+        if (file_exists($video_path) && is_file($video_path)) {
+            $file = $getID3->analyze($video_path);
+        }
+
+        $video_meta = isset($file['video']) && is_array($file['video']) ? $file['video'] : array();
+        $width = isset($video_meta['resolution_x']) ? (int) $video_meta['resolution_x'] : 0;
+        $height = isset($video_meta['resolution_y']) ? (int) $video_meta['resolution_y'] : 0;
         $price = $Library->price;
         if (!empty($price)) {
 
@@ -476,7 +489,11 @@ class Purchase extends StaysailPublic
         $available_resolutions = array();
 
         // The full-size image is the only one available, and it's medium resolution
-        $available_resolutions[1] = "$" . $price . " -- Video ({$width}x{$height})";
+        $video_label = "$" . $price . " -- Video";
+        if ($width > 0 && $height > 0) {
+            $video_label .= " ({$width}x{$height})";
+        }
+        $available_resolutions[1] = $video_label;
 
 
         // Set redirect URL if the user chooses to add a new payment method
